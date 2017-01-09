@@ -1,24 +1,70 @@
-.App {
-  text-align: center;
+body {
+  background-color: #262626;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+nav{
+  background-color: #3b3b3b;
   color: white;
+  font-size:50px;
+}
+.navbar-brand {
+  background-color: #F47A20;
+  color:white;
+  width: 220px;
+}
+.navbar-text {
+  height:10px;
+}
+.logo {
+  max-width:230px;
+}
+.clock {
+  position: absolute;
+  right:7px;
+  top:8px;
+}
+.col-md-6 {
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
-.App-intro {
-  font-size: large;
+
+#containerContent {
+	margin-top: 120px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+		.row > div {
+			margin-bottom: 15px;
+		}
+
+		.sidebar {
+			min-height: 300px;
+			background: #dbdfe5;
+		}
+
+		.content-top {
+			padding: 9px;
+			min-height: 350px;
+      background-color: #3b3b3b;
+			/*background-image: url('../images/texture.png');*/
+			color: white;
+		}
+
+		.content-bottom {
+			padding: 6px;
+			min-height: 125px;
+      background-color: #3b3b3b;
+			/*background-image: url('../images/texture.png');*/
+/*			background-color: rgba(0, 22, 44, 0.8);*/
+			margin-bottom: -15px;
+			color:white;
+		}
+
+    .titles {
+      height:45px;
+      background-color: #F47A20;
+      color:white;
+    }
+
+.App {
+  /*text-align: center;*/
 }
