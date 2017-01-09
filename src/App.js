@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TwitterFeed from './twitterFeed/twitterFeed';
+
 import News from './news/news';
+
 
 class App extends Component {
   render() {
