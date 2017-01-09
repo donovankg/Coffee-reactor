@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import TwitterFeed from './twitterFeed/twitterFeed';
 
+import News from './news/news';
+
+
 class App extends Component {
   render() {
     return (
@@ -15,6 +18,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <TwitterFeed />
+        <News />
       </div>
     );
   }
