@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewsListItem from './newslist';
 
+
 class News extends Component {
   constructor(props){
     super(props);
@@ -13,10 +14,15 @@ class News extends Component {
   onNewsSelect(name){
     this.setState({image: name.urlToImage, description: name.description});
   }
+  componentDidMount(){
+    this.NewsList();
+  }
+
   NewsList(){
     return fetch("https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=39a06ecd5fba4f7ebe995729e8d95c15")
       .then((response)=> response.json())
       .then((responseJson) =>{
+
         this.setState({news: responseJson.articles, image: responseJson.articles[0].urlToImage, description: responseJson.articles[0].description});
       });
   };
@@ -25,6 +31,7 @@ class News extends Component {
       return (
             <NewsListItem onNewsSelect={this.onNewsSelect} item={item} />
           );
+      });
     });
 
     return (
@@ -39,9 +46,11 @@ class News extends Component {
                   <h5>{this.state.description}</h5>
               </div>
             </div>
+
           </div>
     );
 
   };
 }
+
 export default News;
