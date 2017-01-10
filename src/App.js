@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import News from './news/news';
-
+import Calendar from './calendar/calendar';
 import TwitterFeed from './twitterFeed/twitterFeed';
 
 
@@ -17,9 +17,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Calendar />
         <TwitterFeed />
         <News />
-
       </div>
     );
   }
