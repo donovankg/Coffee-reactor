@@ -17,6 +17,7 @@ class News extends Component {
     return fetch("https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=39a06ecd5fba4f7ebe995729e8d95c15")
       .then((response)=> response.json())
       .then((responseJson) =>{
+
         this.setState({news: responseJson.articles, image: responseJson.articles[0].urlToImage, description: responseJson.articles[0].description});
       });
   };
@@ -43,5 +44,5 @@ class News extends Component {
     );
 
   };
-}      
+}
 export default News;

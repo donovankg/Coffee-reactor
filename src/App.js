@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import News from './news/news';
-
+import Weather from  './weatherApp/weatherApp';
 import TwitterFeed from './twitterFeed/twitterFeed';
 
 
@@ -14,12 +14,13 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Coffee-reactor</h2>
         </div>
+
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <TwitterFeed />
         <News />
-
+        <Weather />
       </div>
     );
   }
