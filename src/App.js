@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import News from './news/news';
 
-import News from './news/news';
 import TwitterFeed from './twitterFeed/twitterFeed';
 
 
