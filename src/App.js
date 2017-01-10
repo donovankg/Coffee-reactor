@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TwitterFeed from './twitterFeed/twitterFeed';
 
 import News from './news/news';
+import TwitterFeed from './twitterFeed/twitterFeed';
 
 
 class App extends Component {
@@ -14,11 +14,13 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Coffee-reactor</h2>
         </div>
+ 
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <TwitterFeed />
         <News />
+
       </div>
     );
   }
