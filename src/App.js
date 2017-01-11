@@ -2,22 +2,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-<<<<<<< HEAD
-=======
-
->>>>>>> b30e409f825d4ca7c212a55958a92ee98f5385b3
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Button from 'react-bootstrap/lib/Button';
 import Clock from 'react-clock';
 
-<<<<<<< HEAD
 
-import Navbar from 'react-bootstrap/lib/Navbar';
-import Button from 'react-bootstrap/lib/Button';
-import Clock from 'react-clock';
-
-=======
->>>>>>> b30e409f825d4ca7c212a55958a92ee98f5385b3
 import News from './news/news';
 import Weather from  './weatherApp/weatherApp';
 import TwitterFeed from './twitterFeed/twitterFeed';
@@ -29,43 +18,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 5d53f8053bdce4f32c93ec36923c5897d97c7a04
-=======
-
->>>>>>> b30e409f825d4ca7c212a55958a92ee98f5385b3
       <Navi>
       </Navi>
 
           <DashContent>
           </DashContent>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b30e409f825d4ca7c212a55958a92ee98f5385b3
-
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Coffee-reactor</h2>
-        </div>
-
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
           <TwitterFeed />
           <News />
           <Weather />
           <Transaction />
-
-<<<<<<< HEAD
->>>>>>> 5d53f8053bdce4f32c93ec36923c5897d97c7a04
-=======
->>>>>>> b30e409f825d4ca7c212a55958a92ee98f5385b3
       </div>
     );
   }
