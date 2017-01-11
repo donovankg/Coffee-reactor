@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
 import Cal from './calendar/calendar';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Button from 'react-bootstrap/lib/Button';
@@ -19,31 +18,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-      <Navi>
-      </Navi>
-
-          <DashContent>
-          </DashContent>
-
-
+        <Navi></Navi>
+        <DashContent>
+        </DashContent>
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Coffee-reactor</h2>
+        <img src={logo} className="App-logo" alt="logo" />
+        <h2>Coffee-reactor</h2>
         </div>
-
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-
         <Cal />
-
-          <TwitterFeed />
-          <News />
-          <Weather />
-          <Transaction />
-
-
+        <TwitterFeed />
+        <News />
+        <Weather />
+        <Transaction />
       </div>
     );
   }
@@ -83,7 +72,9 @@ class DashContent extends Component {
         <div className ="container-fluid titles">
           <h4>Twitter</h4>
         </div>
-          <div  className="content-top">
+
+          <div id= 'twitter'className="content-top">
+            <TwitterFeed />
           </div>
         </div>
         <div className="col-md-12">
@@ -102,7 +93,9 @@ class DashContent extends Component {
             <h4>News</h4>
           </div>
 
-          <div  className="content-top" ></div>
+          <div  className="content-top" >
+            <News />
+          </div>
         </div>
       </div>
       <div className="row">
@@ -119,7 +112,8 @@ class DashContent extends Component {
       <div className ="container-fluid titles">
         <h4>Weather</h4>
       </div>
-        <div className="col-md-12 content-bottom">
+        <div id='weather' className="col-md-12 content-bottom">
+        <Weather />
         </div>
 
     </div>

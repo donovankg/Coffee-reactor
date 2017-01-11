@@ -5,7 +5,7 @@ const NewsListItem = ({item, onNewsSelect}) => {
   const url = item.url;
 
 return (
-    <li onMouseOver={() => onNewsSelect(item)} className="list-group-item mod">
+    <li onMouseOver={() => onNewsSelect(item)} className ='list-group-item-action'>
         <a href={url}><h5>{title}</h5></a>
     </li>
   );
