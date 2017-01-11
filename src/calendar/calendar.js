@@ -1,0 +1,23 @@
+import React, {Component} from 'react';
+import BigCalendar from 'react-big-calendar';
+import moment from 'moment';
+import './css/react-big-calendar.css';
+import myEventsList from '../events/events';
+
+
+
+BigCalendar.setLocalizer(
+  BigCalendar.momentLocalizer(moment)
+);
+const MyCalendar = props => (
+  <div>
+    <BigCalendar className="col-md-4"
+      events={myEventsList}
+      style={{height: 400}}
+      defaultDate={new Date(2015, 3, 1)}
+    />
+  </div>
+);
+
+
+export default MyCalendar;
