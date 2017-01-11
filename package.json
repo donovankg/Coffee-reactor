@@ -12,12 +12,18 @@
     "moment": "^2.17.1",
     "react": "^15.4.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-clock": "^1.0.5",
     "react-dom": "^15.4.1"
 =======
 
     "react-clock": "^1.0.5",
 
+=======
+
+    "react-clock": "^1.0.5",
+   
+>>>>>>> b30e409f825d4ca7c212a55958a92ee98f5385b3
 
     "react-big-calendar": "^0.12.0",
     "react-bootstrap": "^0.30.7",
@@ -25,7 +31,10 @@
     "react-hover-observer": "^1.1.1",
     "react-twitter-widgets": "^1.1.0"
 
+<<<<<<< HEAD
 >>>>>>> 5d53f8053bdce4f32c93ec36923c5897d97c7a04
+=======
+>>>>>>> b30e409f825d4ca7c212a55958a92ee98f5385b3
   },
   "scripts": {
     "start": "react-scripts start",
