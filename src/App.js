@@ -2,20 +2,42 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Button from 'react-bootstrap/lib/Button';
 import Clock from 'react-clock';
+
+import News from './news/news';
+import Weather from  './weatherApp/weatherApp';
+import TwitterFeed from './twitterFeed/twitterFeed';
+import Transaction from './transactionApp/transactionApp';
+
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+
       <Navi>
       </Navi>
 
           <DashContent>
           </DashContent>
+
+
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Coffee-reactor</h2>
+        </div>
+
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+          <TwitterFeed />
+          <News />
+          <Weather />
+          <Transaction />
 
       </div>
     );
