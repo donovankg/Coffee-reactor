@@ -19,10 +19,10 @@ BigCalendar.setLocalizer(
 const MyCalendar = props => (
   <div>
     <BigCalendar className="col-md-4"
-    
       events={myEventsList}
       startAccessor='startDate'
       endAccessor='endDate'
+    style={{height: 300}}
     />
   </div>
 );
