@@ -35,7 +35,7 @@ class News extends Component {
                 <h1>Breaking News</h1>
                 <ul className="panel-list">{ newss }</ul>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-4">
                   <img src={this.state.image} role="presentation"/>
                   <h5>{this.state.description}</h5>
               </div>
