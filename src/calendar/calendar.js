@@ -2,15 +2,8 @@ import React, {Component} from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import './css/react-big-calendar.css';
-var myEventsList = [
-    {
-      'title': 'All Day Event',
-      'allDay': true,
-      'start': new Date(2017, 12, 0),
-      'end': new Date(2017, 12, 1)
-    }
+import myEventsList from '../events/events';
 
-];
 
 
 BigCalendar.setLocalizer(
@@ -20,9 +13,8 @@ const MyCalendar = props => (
   <div>
     <BigCalendar className="col-md-4"
       events={myEventsList}
-      startAccessor='startDate'
-      endAccessor='endDate'
-    style={{height: 300}}
+      style={{height: 400}}
+      defaultDate={new Date(2015, 3, 1)}
     />
   </div>
 );
