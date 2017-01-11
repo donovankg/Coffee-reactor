@@ -19,13 +19,11 @@ class Weather extends Component {
   notify(event){
     if(event.key === "Enter"){
       var newCity = event.target.value;
-      console.log(newCity);
       this.WeatherList(newCity);
     }
   }
 
   WeatherList(newCity){
-    console.log(this.state.city)
     return fetch("http://api.openweathermap.org/data/2.5/forecast?units=metric&q="+newCity+"&mode=json&appid=5babe75ca0e2081709ac0eda2202d4f9")
       .then((response)=>response.json())
       .then((responseJson) =>{
