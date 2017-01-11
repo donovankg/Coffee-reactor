@@ -32,11 +32,13 @@ class News extends Component {
           <div id="layout-content" className="lauout-content-wrapper">
             <div className="row">
               <div className="col-md-3">
-                <h1>Breaking News</h1>
-                <ul className="panel-list">{ newss }</ul>
+
+                <ul>{ newss }
+                  <br/>
+                </ul>
               </div>
-              <div className="col-md-4">
-                  <img src={this.state.image} role="presentation"/>
+              <div className="col-md-9">
+                  <img src= {this.state.image} role="presentation"/>
                   <h5>{this.state.description}</h5>
               </div>
             </div>

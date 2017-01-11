@@ -64,6 +64,34 @@ nav{
       background-color: #F47A20;
       color:white;
     }
+    #news {
+      max-height: 600px;
+      overflow: hidden;
+    }
+    ul {
+      list-style-type: none;
+    }
+    li {
+      padding: 4px 0px 4px 0px;
+
+    }
+
+    #news li a{
+      color:white;
+
+    }
+    #news img {
+      width: 100%;
+    }
+
+    #weather input {
+      color:black;
+    }
+
+    #twitter {
+      max-height: 535px;
+      overflow: hidden;
+    }
 
 .App {
   /*text-align: center;*/

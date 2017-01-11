@@ -24,9 +24,6 @@ class App extends Component {
           <DashContent>
           </DashContent>
 
-          <TwitterFeed />
-          <News />
-          <Weather />
           <Transaction />
       </div>
     );
@@ -67,7 +64,9 @@ class DashContent extends Component {
         <div className ="container-fluid titles">
           <h4>Twitter</h4>
         </div>
-          <div  className="content-top">
+
+          <div id= 'twitter'className="content-top">
+            <TwitterFeed />
           </div>
         </div>
         <div className="col-md-12">
@@ -86,7 +85,9 @@ class DashContent extends Component {
             <h4>News</h4>
           </div>
 
-          <div  className="content-top" ></div>
+          <div  className="content-top" >
+            <News />
+          </div>
         </div>
       </div>
       <div className="row">
@@ -103,7 +104,8 @@ class DashContent extends Component {
       <div className ="container-fluid titles">
         <h4>Weather</h4>
       </div>
-        <div className="col-md-12 content-bottom">
+        <div id='weather' className="col-md-12 content-bottom">
+        <Weather />
         </div>
 
     </div>
