@@ -7,16 +7,48 @@ import Button from 'react-bootstrap/lib/Button';
 import Clock from 'react-clock';
 
 
+import Navbar from 'react-bootstrap/lib/Navbar';
+import Button from 'react-bootstrap/lib/Button';
+import Clock from 'react-clock';
+
+import News from './news/news';
+import Weather from  './weatherApp/weatherApp';
+import TwitterFeed from './twitterFeed/twitterFeed';
+import Transaction from './transactionApp/transactionApp';
+
+
+
 class App extends Component {
   render() {
     return (
       <div className="App">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5d53f8053bdce4f32c93ec36923c5897d97c7a04
       <Navi>
       </Navi>
 
           <DashContent>
           </DashContent>
 
+<<<<<<< HEAD
+=======
+
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Coffee-reactor</h2>
+        </div>
+
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+          <TwitterFeed />
+          <News />
+          <Weather />
+          <Transaction />
+
+>>>>>>> 5d53f8053bdce4f32c93ec36923c5897d97c7a04
       </div>
     );
   }
