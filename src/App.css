@@ -1,25 +1,38 @@
+
+
 body {
   background-color: #262626;
 }
 nav{
+
   background-color: #3b3b3b;
   color: white;
-  font-size:50px;
+  box-shadow: 4px 3px 8px rgb(0, 0, 0);
 }
-.navbar-brand {
+nav ul {
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  padding: 0px
+}
+ nav ul li{
   background-color: #F47A20;
-  color:white;
-  width: 220px;
+
+  width: 200px;
 }
-.navbar-text {
-  height:10px;
+.dash {
+  margin-top: 90px;
 }
+
 .logo {
-  max-width:230px;
+  position: absolute;
+  left:0px;
+  max-width:160px;
+  z-index: 1000px;
 }
 .clock {
   position: absolute;
-  right:7px;
+  right:10px;
   top:8px;
 }
 .col-md-6 {
@@ -29,7 +42,7 @@ nav{
 
 
 #containerContent {
-	margin-top: 120px;
+	margin-top: 42px;
 }
 
 		.row > div {
@@ -65,8 +78,8 @@ nav{
       color:white;
     }
     #news {
-      max-height: 600px;
-      overflow: hidden;
+      max-height: 800px;
+      /*overflow: hidden;*/
     }
     ul {
       list-style-type: none;
@@ -81,11 +94,20 @@ nav{
 
     }
     #news img {
-      width: 100%;
+      max-width: 100%;
+    }
+
+    #weather {
+      text-align: center;
+      align-items: center;
+      margin: auto;
+      padding: auto;
+      align-content: center;
     }
 
     #weather input {
       color:black;
+
     }
 
     #twitter {
@@ -95,4 +117,25 @@ nav{
 
 .App {
   /*text-align: center;*/
+}
+
+@media only screen and (max-width : 375px) {
+  nav{
+
+  }
+
+  #news {
+
+
+  }
+}
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    #news {
+
+
+    }
+
 }

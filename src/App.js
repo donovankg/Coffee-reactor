@@ -33,19 +33,21 @@ class App extends Component {
 class Navi extends Component {
   render() {
     return (
-      <div className="navi">
-      <Navbar bsStyle ='nav' fixedTop fluid>
-    <Navbar.Header >
-      <Navbar.Brand>
-        <img src ={logo} className ="logo"/>
-      </Navbar.Brand>
-    </Navbar.Header>
-    <Navbar.Text >
+      <div>
+
+    <nav className="navbar  navbar-fixed-top">
+    <div className="container">
+
+
+  <img src ={logo} className ="logo"/>
+
+    <div className ="navbar-text">
       <h2>
         <Clock/>
       </h2>
-    </Navbar.Text>
-    </Navbar>
+    </div>
+  </div>
+</nav>
     </div>
     );
   }
@@ -54,7 +56,7 @@ class Navi extends Component {
 class DashContent extends Component {
   render () {
     return (
-      <div className ="container-fluid" id="containerContent" >
+      <div className ="container-fluid dash" >
       <div className="row">
 
     <div className="col-md-4">
@@ -73,7 +75,9 @@ class DashContent extends Component {
         <div className ="container-fluid titles">
           <h4>Music</h4>
         </div>
-          <div  className="content-bottom"></div>
+          <div  className="content-bottom">
+            <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
+          </div>
         </div>
 
       </div>
@@ -92,7 +96,7 @@ class DashContent extends Component {
       </div>
       <div className="row">
 
-        <div className="col-md-8">
+        <div className="col-md-9">
         <div className ="container-fluid titles">
           <h4>Fitness Tracker</h4>
         </div>
@@ -100,7 +104,7 @@ class DashContent extends Component {
 
       </div>
 
-      <div className="col-md-4">
+      <div className="col-md-3">
       <div className ="container-fluid titles">
         <h4>Weather</h4>
       </div>
