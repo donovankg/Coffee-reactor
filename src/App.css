@@ -78,13 +78,9 @@ nav ul {
       color:white;
     }
     #news {
-<<<<<<< HEAD
+
       max-height: 800px;
       /*overflow: hidden;*/
-=======
-      max-height: 600px;
-      overflow: hidden;
->>>>>>> d07acc3462c67c763d2f164aaa03115670c23133
     }
     ul {
       list-style-type: none;
@@ -121,6 +117,12 @@ nav ul {
       max-height: 535px;
       overflow: hidden;
     }
+
+    .cal-button {
+      margin-top: 5px;
+    }
+
+    @brand-info:  #3b3b3b;
 
 .App {
   /*text-align: center;*/

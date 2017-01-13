@@ -7,9 +7,10 @@ import Button from 'react-bootstrap/lib/Button';
 import Clock from 'react-clock';
 import News from './news/news';
 import Weather from  './weatherApp/weatherApp';
-
+import Cal from './calendar/calendar';
 import TwitterFeed from './twitterFeed/twitterFeed';
 import Transaction from './transactionApp/transactionApp';
+import Modal from 'react-bootstrap/lib/Modal';
 
 
 // http://react-component.github.io/calendar/
@@ -21,7 +22,7 @@ class App extends Component {
         <Navi></Navi>
         <DashContent>
         </DashContent>
-        <Cal />
+
         <Transaction />
       </div>
     );
@@ -51,7 +52,16 @@ class Navi extends Component {
   }
 }
 
-class DashContent extends Component {
+const DashContent = React.createClass ({
+  getInitialState () {
+    return { showModal: false};
+  },
+  close () {
+    this.setState({ showModal: false});
+  },
+  open () {
+    this.setState({ showModal: true});
+  },
   render () {
     return (
       <div className ="container-fluid dash" >
@@ -96,9 +106,28 @@ class DashContent extends Component {
 
         <div className="col-md-9">
         <div className ="container-fluid titles">
-          <h4>Fitness Tracker</h4>
+        <label>
+          <span><h4>Calendar</h4></span>
+          </label>
+          <button type="submit" className="btn btn-default pull-right btn-sm cal-button"
+            onClick = {this.open}>
+
+          Add Event
+          </button>
+          <Modal bsSize="large" show ={this.state.showModal} onHide = {this.close}>
+            <Modal.Body>
+              <h4>Modal is working</h4>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.close}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+
         </div>
-        <div className="col-md-12 content-top "></div>
+        <div className="col-md-12 content-top ">
+          <Cal >
+          </Cal>
+        </div>
 
       </div>
 
@@ -119,6 +148,6 @@ class DashContent extends Component {
 
     )
   }
-}
+})
 
 export default App;
