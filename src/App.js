@@ -18,15 +18,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navi></Navi>
-        <DashContent>
-        </DashContent>
+
         <Cal />
-        <Transaction />
+
       </div>
     );
   }
 }
+
+
+
 
 class Navi extends Component {
   render() {
@@ -48,6 +49,8 @@ class Navi extends Component {
     );
   }
 }
+
+
 
 class DashContent extends Component {
   render () {
