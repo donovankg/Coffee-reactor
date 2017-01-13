@@ -11,6 +11,7 @@ import News from './news/news';
 import Weather from  './weatherApp/weatherApp';
 import TwitterFeed from './twitterFeed/twitterFeed';
 import Transaction from './transactionApp/transactionApp';
+import TodoApp from './todoList/todoapp'
 
 
 
@@ -73,10 +74,11 @@ class DashContent extends Component {
         </div>
         <div className="col-md-12">
         <div className ="container-fluid titles">
-          <h4>Music</h4>
+          <h4>Todos for today</h4>
         </div>
           <div  className="content-bottom">
-            <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
+            <TodoApp>
+            </TodoApp>
           </div>
         </div>
 
