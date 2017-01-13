@@ -5,26 +5,24 @@ import './App.css';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Button from 'react-bootstrap/lib/Button';
 import Clock from 'react-clock';
-
-
 import News from './news/news';
 import Weather from  './weatherApp/weatherApp';
+
 import TwitterFeed from './twitterFeed/twitterFeed';
 import Transaction from './transactionApp/transactionApp';
 
 
-
+// http://react-component.github.io/calendar/
 class App extends Component {
   render() {
     return (
       <div className="App">
-      <Navi>
-      </Navi>
 
-          <DashContent>
-          </DashContent>
-
-          <Transaction />
+        <Navi></Navi>
+        <DashContent>
+        </DashContent>
+        <Cal />
+        <Transaction />
       </div>
     );
   }
