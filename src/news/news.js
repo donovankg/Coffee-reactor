@@ -37,8 +37,9 @@ class News extends Component {
                   <br/>
                 </ul>
               </div>
-              <div className="col-md-9">
-                  <img src= {this.state.image} role="presentation"/>
+              <div className="col-md-4">
+                  <img src={this.state.image} role="presentation"/>
+
                   <h5>{this.state.description}</h5>
               </div>
             </div>

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import Cal from './calendar/calendar';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Button from 'react-bootstrap/lib/Button';
@@ -105,6 +106,7 @@ class DashContent extends Component {
         <div id='weather' className="col-md-12 content-bottom">
         <Weather />
         </div>
+        <Transaction />
 
     </div>
 
