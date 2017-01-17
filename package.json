@@ -11,6 +11,8 @@
     "currency-rate": "^1.0.1",
     "moment": "^2.17.1",
     "react": "^15.4.1",
+    "react-clock": "^1.0.5",
+    "react-dom": "^15.4.1",
     "react-big-calendar": "^0.12.0",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",

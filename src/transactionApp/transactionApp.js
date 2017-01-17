@@ -19,7 +19,9 @@ class Transaction extends Component{
   constructor(props){
     super(props);
     this.state= {from: 'USD',to: 'USD', value : 0,
+
                  converted : null, mxn: null, eur: null,
+
                  transactionArr:[],
                  transaction: '',amount: '',
                  id: 0, object: '',
@@ -84,7 +86,6 @@ class Transaction extends Component{
           amount: this.state.amount
         }
       }
-
       newArr.push(obj1);
       this.setState({
         transactionArr : newArr,
@@ -109,14 +110,12 @@ class Transaction extends Component{
       });
     }
     localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
-
   };
   editThis(item){
     this.openModal(item);
     this.transaction(item.title);
     this.amount(item.amount);
     localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
-
   }
   deleteThis(id){
     var newArr =this.state.transactionArr;
@@ -127,7 +126,6 @@ class Transaction extends Component{
       this.setState({transactionArr: newArr})
     }
     localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
-
   }
   componentDidMount(){
     var objee = {
@@ -148,8 +146,8 @@ class Transaction extends Component{
 
       this.TransactionList(objee);
 
+   }
 
-      }
   convertThis(event){
     var newArr =this.state.transactionArr;
     if(event==='USD'){
@@ -165,12 +163,15 @@ class Transaction extends Component{
       }
     }
     if(event==='EUR'){
+
       var conr =this.state.eur;
       for(var c in newArr){
+        console.log((newArr[c].amount) * conr);
         newArr[c].convert = (Math.round(newArr[c].amount * conr).toFixed(2)) + ' EUR';
       }
     }
     this.setState({transactionArr: newArr})
+
   };
   usdToMxn(){
     var objee = {
@@ -189,7 +190,6 @@ class Transaction extends Component{
     this.TransactionList(objee);
   }
 
-
   TransactionList(changes){
     var from = changes.from;
     var to = changes.to;
@@ -204,6 +204,7 @@ class Transaction extends Component{
         if(to==='EUR'){
           this.setState({eur: (responseJson.rates[to]*value)})
         }
+
       })
   }
   render(){
@@ -223,5 +224,5 @@ class Transaction extends Component{
       </div>
     )
   }
-}
+
 export default Transaction;
