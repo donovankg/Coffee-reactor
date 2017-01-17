@@ -26,7 +26,6 @@ class Transaction extends Component{
                  modelIsOpen: false,
                 };
   };
-
   openModal(arr){
     this.setState({
         modalIsOpen: true
@@ -64,7 +63,6 @@ class Transaction extends Component{
   convert(){
     var changes={from: this.state.from, to: this.state.to,value: this.state.value};
     this.TransactionList(changes);
-
   };
   save(id){
     var newArr = this.state.transactionArr;
@@ -84,7 +82,6 @@ class Transaction extends Component{
           amount: this.state.amount
         }
       }
-
       newArr.push(obj1);
       this.setState({
         transactionArr : newArr,
@@ -109,14 +106,12 @@ class Transaction extends Component{
       });
     }
     localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
-
   };
   editThis(item){
     this.openModal(item);
     this.transaction(item.title);
     this.amount(item.amount);
     localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
-
   }
   deleteThis(id){
     var newArr =this.state.transactionArr;
@@ -145,11 +140,8 @@ class Transaction extends Component{
           transactionArr: newArr
         });
       }
-
-      this.TransactionList(objee);
-
-
-      }
+    this.TransactionList(objee)
+  }
   convertThis(event){
     var newArr =this.state.transactionArr;
     if(event==='USD'){
@@ -167,6 +159,7 @@ class Transaction extends Component{
     if(event==='EUR'){
       var conr =this.state.eur;
       for(var c in newArr){
+        console.log((newArr[c].amount) * conr);
         newArr[c].convert = (Math.round(newArr[c].amount * conr).toFixed(2)) + ' EUR';
       }
     }
@@ -188,8 +181,6 @@ class Transaction extends Component{
     }
     this.TransactionList(objee);
   }
-
-
   TransactionList(changes){
     var from = changes.from;
     var to = changes.to;

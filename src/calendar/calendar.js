@@ -1,27 +1,23 @@
 import React, {Component} from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-
-BigCalendar.momentLocalizer(moment);
-
-
-var myEventsList = [];
-
-  class Calendar extends Component {
+import './css/react-big-calendar.css';
+import myEventsList from '../events/events';
 
 
-    render() {
-        return (
-          <div>
-    <BigCalendar
+
+BigCalendar.setLocalizer(
+  BigCalendar.momentLocalizer(moment)
+);
+const MyCalendar = props => (
+  <div>
+    <BigCalendar className="col-md-4"
       events={myEventsList}
-      startAccessor='startDate'
-      endAccessor='endDate'
+      style={{height: 400}}
+      defaultDate={new Date(2015, 3, 1)}
     />
   </div>
-        );
-    }
-}
+);
 
 
-export default Calendar;
+export default MyCalendar;
