@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 let myEventsList = [];
-//----------mock data---------------
+// ----------mock data---------------
 // var myEventsList = [
 //   {
 //     'title': 'All Day Event',
@@ -77,12 +77,12 @@ let myEventsList = [];
 //     myEventsList[key].id = keyId;
 //     keyId++;
 // }
-
 // localStorage.setItem('myEventsList', JSON.stringify(myEventsList));
+
 
 //load data from local storage on start
 var loadData = localStorage.getItem('myEventsList');
+
 myEventsList = JSON.parse(loadData);
-console.log(loadData);
 
 export default myEventsList;

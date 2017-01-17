@@ -15,6 +15,13 @@ import Transaction from './transactionApp/transactionApp';
 
 // http://react-component.github.io/calendar/
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      pickEvent:[],
+      selectedEvent: null
+    };
+  }
   render() {
     return (
       <div className="App">
