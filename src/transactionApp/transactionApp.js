@@ -224,5 +224,5 @@ class Transaction extends Component{
       </div>
     )
   }
-
+}
 export default Transaction;
