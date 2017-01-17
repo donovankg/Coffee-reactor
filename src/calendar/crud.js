@@ -23,22 +23,12 @@ function calDelete(index) {
     }
   }
 }
-// function calEdit(index) {
-//   console.log(index);
-//   for(var key in myEventsList){
-//     if(myEventsList[key].id === index.id){
-//       console.log(myEventsList[key].title);
-//       // myEventsList[key].title = 'Edited'; //from input box
-//       localStorage.setItem('myEventsList', JSON.stringify(myEventsList));
-//     }
-//   }
-// }
-
 
 
 function calNew() {
   var newEvent = {
       'title': "New Event",
+      'desc': 'new desc',
       'start': new Date(),
       'end': new Date(),
       'id': myEventsList[myEventsList.length-1].id+1
@@ -73,11 +63,22 @@ function calSave(index, newTitle){
 class CalendarCrud extends Component  {
   constructor(props){
     super(props);
-    this.state = {myEventsList};
+    this.state = {
+      title: '',
+      desc: '',
+      start: '',
+      end: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
     this.calEditTitle = this.calEditTitle.bind(this);
     this.calEditDesc = this.calEditDesc.bind(this);
     this.calEditStart = this.calEditStart.bind(this);
     this.calEditEnd = this.calEditEnd.bind(this);
+  }
+
+  handleChange(event){
+    this.setState({title:event.target.value});
+    console.log(event.target.value);
   }
 
   calEditTitle(e,item){
@@ -99,15 +100,17 @@ class CalendarCrud extends Component  {
 
   render(){
 
-  const showEvents = this.state.myEventsList.map((item) =>{
+  const showEvents = myEventsList.map((item) =>{
       return(
-        <EventItem key={item.id} calSave={calSave.bind(this)}
+        <EventItem key={item.id}
+        handleChange ={this.handleChange.bind(this)}
+        calSave={calSave.bind(this)}
         calEditTitle={this.calEditTitle.bind(this)}
         calEditDesc={this.calEditDesc.bind(this)}
         calEditStart={this.calEditStart.bind(this)}
         calEditEnd={this.calEditEnd.bind(this)}
-        calDelete={calDelete.bind(this)} item ={item} />
-
+        calDelete={calDelete.bind(this)} item ={item}
+         />
       )
     })
     return(
