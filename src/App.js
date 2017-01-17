@@ -74,7 +74,7 @@ class DashContent extends Component {
         </div>
         <div className="col-md-12">
         <div className ="container-fluid titles">
-          <h4>Todos for today</h4>
+          <h4>To Do List</h4>
         </div>
           <div  className="content-bottom">
             <TodoApp>
