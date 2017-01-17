@@ -19,7 +19,9 @@ class Transaction extends Component{
   constructor(props){
     super(props);
     this.state= {from: 'USD',to: 'USD', value : 0,
-                 converted : null, mxn: null, eur: null, cons: null,
+
+                 converted : null, mxn: null, eur: null,
+
                  transactionArr:[],
                  transaction: '',amount: '',
                  id: 0, object: '',
@@ -69,11 +71,20 @@ class Transaction extends Component{
   save(id){
     var newArr = this.state.transactionArr;
     if(id===undefined){
-      this.setState({id: this.state.id+1})
-      var obj1 = {
-        id: this.state.id,
-        title: this.state.transaction,
-        amount: this.state.amount
+      if(newArr.length===0){
+         this.setState({id: this.state.id+1});
+         var obj1 = {
+           id: this.state.id,
+           title: this.state.transaction,
+           amount: this.state.amount
+         }
+      }
+      if(newArr.length>0){
+        var obj1 = {
+          id: newArr.length,
+          title: this.state.transaction,
+          amount: this.state.amount
+        }
       }
       newArr.push(obj1);
       this.setState({
@@ -98,11 +109,13 @@ class Transaction extends Component{
         modalIsOpen: false
       });
     }
+    localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
   };
   editThis(item){
     this.openModal(item);
     this.transaction(item.title);
     this.amount(item.amount);
+    localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
   }
   deleteThis(id){
     var newArr =this.state.transactionArr;
@@ -112,6 +125,7 @@ class Transaction extends Component{
       }
       this.setState({transactionArr: newArr})
     }
+    localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
   }
   componentDidMount(){
     var objee = {
@@ -119,8 +133,21 @@ class Transaction extends Component{
       to: 'USD',
       value: null
     }
-    this.TransactionList(objee)
-  }
+    this.usdToMxn();
+    this.usdToEur();
+    var myLocal= localStorage.getItem('myLocal');
+      if(myLocal!==null){
+        var newArr = this.state.transactionArr;
+        newArr =JSON.parse(myLocal);
+        this.setState({
+          transactionArr: newArr
+        });
+      }
+
+      this.TransactionList(objee);
+
+   }
+
   convertThis(event){
     var newArr =this.state.transactionArr;
     if(event==='USD'){
@@ -130,17 +157,14 @@ class Transaction extends Component{
       }
     }
     if(event==='MXN'){
-        var chan= {from: 'USD', to: 'MXN', value: 1}
-        this.TransactionList(chan);
-      var conver =this.state.converted;
+      var conver =this.state.mxn;
       for(var a in newArr){
         newArr[a].convert = (Math.round(newArr[a].amount * conver).toFixed(2)) + ' MXN';
       }
     }
     if(event==='EUR'){
-      var cha= {from: 'USD', to: 'EUR', value: 1}
-      this.TransactionList(cha);
-      var conr =this.state.converted;
+
+      var conr =this.state.eur;
       for(var c in newArr){
         console.log((newArr[c].amount) * conr);
         newArr[c].convert = (Math.round(newArr[c].amount * conr).toFixed(2)) + ' EUR';
@@ -149,6 +173,23 @@ class Transaction extends Component{
     this.setState({transactionArr: newArr})
 
   };
+  usdToMxn(){
+    var objee = {
+      from: 'USD',
+      to: 'MXN',
+      value: 1
+    }
+    this.TransactionList(objee);
+  }
+  usdToEur(){
+    var objee = {
+      from: 'USD',
+      to: 'EUR',
+      value: 1
+    }
+    this.TransactionList(objee);
+  }
+
   TransactionList(changes){
     var from = changes.from;
     var to = changes.to;
@@ -157,6 +198,13 @@ class Transaction extends Component{
       .then((response)=> response.json())
       .then((responseJson)=>{
         this.setState({converted: ((responseJson.rates[to]*value)||value)});
+        if(to==='MXN'){
+          this.setState({mxn: (responseJson.rates[to]*value)})
+        }
+        if(to==='EUR'){
+          this.setState({eur: (responseJson.rates[to]*value)})
+        }
+
       })
   }
   render(){
