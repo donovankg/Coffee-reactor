@@ -1,33 +1,14 @@
 import React, { Component } from 'react';
-
 import logo from './logo.svg';
-
 import './App.css';
-<<<<<<< HEAD
-=======
-
->>>>>>> 9094710ded3ace3f2134bdb979dd115d4421f509
 import Navbar from 'react-bootstrap/lib/Navbar';
-
 import Button from 'react-bootstrap/lib/Button';
-
 import Clock from 'react-clock';
-
 import News from './news/news';
-
 import Weather from  './weatherApp/weatherApp';
-<<<<<<< HEAD
 import Cal from './calendar/calendar';
-=======
-
-import Cal from './calendar/calendar';
-
->>>>>>> 9094710ded3ace3f2134bdb979dd115d4421f509
 import TwitterFeed from './twitterFeed/twitterFeed';
-
 import Transaction from './transactionApp/transactionApp';
-import Modal from 'react-bootstrap/lib/Modal';
-
 import Modal from 'react-bootstrap/lib/Modal';
 
 // http://react-component.github.io/calendar/
@@ -71,16 +52,12 @@ class Navi extends Component {
   <img src ={logo} className ="logo"/>
 
     <div className ="navbar-text">
-
       <h2>
-
         <Clock/>
-
       </h2>
-
     </div>
-  </div>
-</nav>
+    </div>
+  </nav>
     </div>
 
 
@@ -151,21 +128,15 @@ const DashContent = React.createClass ({
     </div>
 
     <div className="col-md-8">
-
       <div className="row">
 
         <div id="news" className="col-md-12">
-
           <div className ="container-fluid titles">
-
             <h4>News</h4>
-
           </div>
 
           <div  className="content-top" >
-
             <News />
-
           </div>
 
         </div>
@@ -267,6 +238,7 @@ const DashContent = React.createClass ({
 
 </div>
 
+</div>
 </div>
 
     )
