@@ -21,18 +21,11 @@ BigCalendar.setLocalizer(
 );
 
 
-//move the function links to this file and break up each of the Components
 class MyCalendar extends Component{
   constructor(props){
     super(props);
     this.state={arr:myEventsList,title: ''}
   }
-  // this.calSave = this.calSave.bind(this);
-  // this.handleChange = this.handleChange.bind(this);
-  // this.calEditTitle = this.calEditTitle.bind(this);
-  // this.calEditDesc = this.calEditDesc.bind(this);
-  // this.calEditStart = this.calEditStart.bind(this);
-  // this.calEditEnd = this.calEditEnd.bind(this);
 
 calDelete(index) {
 
@@ -50,7 +43,15 @@ calDelete(index) {
 
 calNew() {
   var newArr = [...this.state.arr];
+
   this.setState({arr:newArr},title:'');
+  let setLength;
+  // if(newArr[newArr.length-1]0){
+  //   setLength = 0;
+  // }else{
+  //   setLength = newArr.length-1
+  // }
+
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
@@ -103,7 +104,6 @@ calEditEnd(e,item){
 }
 
 
-
   render(){
 
   const showEvents = this.state.arr.map((item) =>{
@@ -116,8 +116,8 @@ calEditEnd(e,item){
           calEditDesc={this.calEditDesc.bind(this)}
           calEditStart={this.calEditStart.bind(this)}
           calEditEnd={this.calEditEnd.bind(this)}
-          calDelete={this.calDelete.bind(this)} item = {item}
-        />
+          calDelete={this.calDelete.bind(this)} item = {item}/>
+
       )
     })
     return(
@@ -141,7 +141,6 @@ calEditEnd(e,item){
           <BigCalendar className="col-md-12"
             events={this.state.arr}
             style={{height: 400}}
-            defaultDate={new Date(2015, 3, 1)}
           />
 
         </div>

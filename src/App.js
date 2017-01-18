@@ -24,6 +24,9 @@ class App extends Component {
     return (
       <div className="App">
 
+        <Cal />
+
+
         <Navi></Navi>
         <DashContent>
         </DashContent>
@@ -32,6 +35,9 @@ class App extends Component {
     );
   }
 }
+
+
+
 
 class Navi extends Component {
   render() {
@@ -51,6 +57,7 @@ class Navi extends Component {
     );
   }
 }
+
 
 const DashContent = React.createClass ({
  getInitialState () {
