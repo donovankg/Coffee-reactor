@@ -9,6 +9,7 @@ import Weather from  './weatherApp/weatherApp';
 import Cal from './calendar/calendar';
 import TwitterFeed from './twitterFeed/twitterFeed';
 import Transaction from './transactionApp/transactionApp';
+import Conversion from './transactionApp/conversion';
 import Modal from 'react-bootstrap/lib/Modal';
 
 // http://react-component.github.io/calendar/
@@ -26,8 +27,6 @@ class App extends Component {
         <DashContent>
 
         </DashContent>
-
-        <Transaction />
 
       </div>
 
@@ -111,7 +110,15 @@ const DashContent = React.createClass ({
 
        <div className="col-md-12">
 
-       <div className ="container-fluid titles">
+        </div>
+          <div  className="content-bottom">
+
+          </div>
+        </div>
+        <div className="col-md-12">
+        <div className ="container-fluid titles">
+          <h4>Transaction</h4>
+
 
          <h4>Music</h4>
 
@@ -121,7 +128,13 @@ const DashContent = React.createClass ({
             <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
           </div>
 
-       </div>
+        </div>
+
+        </div>
+
+
+      </div>
+
 
      </div>
 
@@ -169,7 +182,10 @@ const DashContent = React.createClass ({
 
         </div>
 
-     </div>
+      </div>
+
+      <div className="col-md-3">
+
 
      <div className="col-md-3">
       <div className ="container-fluid titles">
