@@ -48,17 +48,18 @@ calDelete(index) {
 }
 
 calNew() {
+  var newArr = [...this.state.arr];
+  this.setState({arr:newArr},title:'');
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
       'start': new Date(),
       'end': new Date(),
-      'id': myEventsList[myEventsList.length-1].id+1
+      'id': newArr[newArr.length-1].id+1
   }
-  myEventsList[myEventsList.length]= newEvent;
-  localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
+  newArr[newArr.length]= newEvent;
+  localStorage.setItem('myEventsList', JSON.stringify(newArr));
 }
-
 
 calSave(index, newTitle){
   if(descCheck){
