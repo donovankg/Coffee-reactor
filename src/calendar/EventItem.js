@@ -1,5 +1,7 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
+import './css/react-datepicker.css';
+
 const EventItem=({item, calEditTitle, calEditDesc, calDelete, calEditStart, calEditEnd, calSave, handleChange, thisState}) => {
 
   const title=item.title;
