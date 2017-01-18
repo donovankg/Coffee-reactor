@@ -171,48 +171,9 @@ const DashContent = React.createClass ({
           </Cal>
 
 
-        <div className ="container-fluid titles">
-
-        <label>
-
-          <span><h4>Calendar</h4></span>
-
-          </label>
-
-          <button type="submit" className="btn btn-default pull-right btn-sm cal-button"
-
-            onClick = {this.open}>
-
-          Add Event
-
-          </button>
-
-          <Modal bsSize="large" show ={this.state.showModal} onHide = {this.close}>
-
-            <Modal.Body>
-
-              <h4>Modal is working</h4>
-
-            </Modal.Body>
-
-            <Modal.Footer>
-
-              <Button onClick={this.close}>Close</Button>
-
-            </Modal.Footer>
-
-          </Modal>
-
         </div>
 
-        <div className="col-md-12 content-top ">
 
-          <Cal >
-
-          </Cal>
-
-
-        </div>
 
       </div>
 
@@ -233,13 +194,12 @@ const DashContent = React.createClass ({
     </div>
 
 </div>
-
 </div>
-
 </div>
 
-</div>
-</div>
+
+
+
 
     )
 
