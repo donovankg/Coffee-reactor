@@ -4,6 +4,7 @@ import moment from 'moment';
 import './css/react-big-calendar.css';
 import myEventsList from '../events/events';
 import EventItem from './EventItem';
+import calEdit from './calEdit';
 
 let title = '';
 let desc = '';
@@ -33,97 +34,70 @@ class MyCalendar extends Component{
   // this.calEditEnd = this.calEditEnd.bind(this);
 
 calDelete(index) {
-// this.state.arr.splice(0,1);
-console.log(this.state.arr);
-for(var key in this.state.arr){
-  if(this.state.arr[key].id == index.id){
-    // this.state.arr.splice(key,1);
-    console.log(key);
-    // localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
-    // console.log('---local storage---',localStorage.myEventsList);
+
+  var newArr = [...this.state.arr];
+  this.setState({arr:newArr},title:'');
+  console.log(newArr);
+  for(var key in newArr){
+    if(newArr[key].id == index.id){
+      newArr.splice(key,1);
+    }
   }
-}
-}
+  localStorage.setItem('myEventsList', JSON.stringify(newArr));
 
-
-calLoad() {
-  // var loadData = localStorage.getItem('myEventsList');
-  // myEventsList = JSON.parse(loadData);
-}
-calSave(index, newTitle){
-
-//  console.log(this.state.arr);
-if(descCheck){
-  index.desc = desc;
-}
-if(titleCheck){
-  index.title = this.state.title;
-}
-if(startCheck){
-  index.start = start;
-}
-if(endCheck){
-  index.end = end;
-}
-var newArr = [...this.state.arr];
-
-this.setState({arr:newArr},title:'');
-console.log(this.state.arr);
-
-console.log(newArr[0]);
-localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
-titleCheck, descCheck, startCheck, endCheck = false;
-this.calLoad();
 }
 
 calNew() {
-var newEvent = {
-    'title': "New Event",
-    'desc': 'new desc',
-    'start': new Date(),
-    'end': new Date(),
-    'id': myEventsList[myEventsList.length-1].id+1
-}
-myEventsList[myEventsList.length]= newEvent;
-localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
-
-}
-
-componentDidUpdate(e){
-console.log('-----  e  ----',this.state.title);
-// this.setState(title: e.target.value);
+  var newEvent = {
+      'title': "New Event",
+      'desc': 'new desc',
+      'start': new Date(),
+      'end': new Date(),
+      'id': myEventsList[myEventsList.length-1].id+1
+  }
+  myEventsList[myEventsList.length]= newEvent;
+  localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
 }
 
-handleChange(event){
 
-// this.setState({title:event.target.value});
-// console.log(event);
+calSave(index, newTitle){
+  if(descCheck){
+    index.desc = desc;
+  }
+  if(titleCheck){
+    index.title = this.state.title;
+  }
+  if(startCheck){
+    index.start = start;
+  }
+  if(endCheck){
+    index.end = end;
+  }
+  var newArr = [...this.state.arr];
+
+  this.setState({arr:newArr},title:'');
+  localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
+  titleCheck, descCheck, startCheck, endCheck = false;
 }
+
 
 calEditTitle(e,item){
-
-console.log(e.target.value);
-this.setState({title:e.target.value});
-titleCheck = true;
-
-console.log('here ',e.target);
-
-// console.log(this.state.arr);
-// title = e.target.value;
-// this.componentDidUpdate(e);
+  console.log(e.target.value);
+  this.setState({title:e.target.value});
+  titleCheck = true;
+  console.log('here ',e.target);
 }
 calEditDesc(e, item){
-descCheck = true;
-desc = e.target.value;
+  descCheck = true;
+  desc = e.target.value;
 }
 calEditStart(e,item){
-startCheck = true;
-start = e.target.value;
+  startCheck = true;
+  start = e.target.value;
 }
 calEditEnd(e,item){
-endCheck = true;
-end = e.target.value;
-
+  endCheck = true;
+  end = e.target.value;
 }
 
 
@@ -135,7 +109,6 @@ end = e.target.value;
         <EventItem
           thisState={this.state.arr}
           key={item.id}
-          handleChange ={this.handleChange.bind(this)}
           calSave={this.calSave.bind(this)}
           calEditTitle={this.calEditTitle.bind(this)}
           calEditDesc={this.calEditDesc.bind(this)}
