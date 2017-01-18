@@ -2,10 +2,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import News from './news/news';
-// import Calendar from './calendar/calendar';
-// import Weather from  './weatherApp/weatherApp';
-// import TwitterFeed from './twitterFeed/twitterFeed';
 
 
 import Cal from './calendar/calendar';
@@ -78,7 +74,16 @@ class DashContent extends Component {
           <h4>Music</h4>
         </div>
           <div  className="content-bottom">
-            <Conversion />
+          
+          </div>
+        </div>
+        <div className="col-md-12">
+        <div className ="container-fluid titles">
+          <h4>Transaction</h4>
+        </div>
+          <div  className="content-bottom">
+              <Transaction />
+
           </div>
         </div>
 
@@ -103,7 +108,9 @@ class DashContent extends Component {
         <div className ="container-fluid titles">
           <h4>Fitness Tracker</h4>
         </div>
-        <div className="col-md-12 content-top "></div>
+        <div className="col-md-12 content-top ">
+
+        </div>
 
       </div>
 

@@ -96,3 +96,9 @@ nav{
 .App {
   /*text-align: center;*/
 }
+#hidden{
+  display: none
+}
+#hiddenn{
+    display: block
+}

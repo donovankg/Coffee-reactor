@@ -15,6 +15,7 @@ const customStyles = {
     transform: 'translate(-50%, -50%)'
   }
 };
+
 class Transaction extends Component{
   constructor(props){
     super(props);
@@ -24,6 +25,7 @@ class Transaction extends Component{
                  transaction: '',amount: '',
                  id: 0, object: '',
                  modelIsOpen: false,
+                 status: false
                 };
   };
   openModal(arr){
@@ -62,6 +64,7 @@ class Transaction extends Component{
   };
   convert(){
     var changes={from: this.state.from, to: this.state.to,value: this.state.value};
+
     this.TransactionList(changes);
   };
   save(id){
@@ -159,28 +162,35 @@ class Transaction extends Component{
     if(event==='EUR'){
       var conr =this.state.eur;
       for(var c in newArr){
-        console.log((newArr[c].amount) * conr);
         newArr[c].convert = (Math.round(newArr[c].amount * conr).toFixed(2)) + ' EUR';
       }
     }
     this.setState({transactionArr: newArr})
   };
-  usdToMxn(){
-    var objee = {
-      from: 'USD',
-      to: 'MXN',
-      value: 1
-    }
+  usdToMxn(){var objee = {from: 'USD', to: 'MXN',value: 1 }
     this.TransactionList(objee);
   }
-  usdToEur(){
-    var objee = {
-      from: 'USD',
-      to: 'EUR',
-      value: 1
-    }
+  usdToEur(){var objee = {from: 'USD',to: 'EUR',value: 1 }
     this.TransactionList(objee);
   }
+  showw(){
+    var hide = document.getElementById('hidden');
+    var hides = document.getElementById('hiddenn');
+    var butt = document.getElementById('bu');
+    console.log(hide.style);
+    if(hide.style.display===''){
+      hide.style.display = 'block',
+      hides.style.display = 'none'
+      butt.innerHTML = 'Go back'
+    }
+    else{
+      hide.style.display = '',
+      hides.style.display = 'block'
+      butt.innerHTML = 'See Transaction'
+
+    }
+  }
+
   TransactionList(changes){
     var from = changes.from;
     var to = changes.to;
@@ -200,7 +210,8 @@ class Transaction extends Component{
   render(){
     return (
       <div>
-        <div className='col-md-9'>
+
+        <div className='col-md-12' id="hidden" >
            <Convert convertThis={this.convertThis.bind(this)} openModal={this.openModal.bind(this)}/>
            <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Transaction">
               <DialogTransaction save={this.save.bind(this)} closeModal={this.closeModal.bind(this)} transaction={this.transaction.bind(this)}
@@ -208,9 +219,10 @@ class Transaction extends Component{
            </Modal>
            <Table transactionArr={this.state.transactionArr} editThis={this.editThis.bind(this)} deleteThis={this.deleteThis.bind(this)}/>
         </div>
-        <div className='col-md-3'>
+        <div className='text-center' id='hiddenn'>
            <Conversion value={this.value.bind(this)} from={this.from.bind(this)} to={this.to.bind(this)} convert={this.convert.bind(this)} convertProp={this.state.converted} />
         </div>
+        <button className="btn btn-primary" id="bu" onClick={this.showw}>See transaction</button>
       </div>
     )
   }
