@@ -80,11 +80,7 @@ let myEventsList = [];
 //
 //
 // localStorage.setItem('myEventsList', JSON.stringify(myEventsList));
-
-
-
-
-// console.log(localStorage.myEventsList);
+console.log(localStorage.myEventsList);
 //load data from local storage on start
 var loadData = localStorage.getItem('myEventsList');
 myEventsList = JSON.parse(loadData);
