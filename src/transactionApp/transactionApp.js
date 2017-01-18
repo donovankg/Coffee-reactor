@@ -125,8 +125,7 @@ class Transaction extends Component{
       this.setState({transactionArr: newArr})
     }
     localStorage.setItem('myLocal', JSON.stringify(this.state.transactionArr));
-
-  }
+}
   componentDidMount(){
     var objee = {
       from: 'USD',
@@ -143,8 +142,10 @@ class Transaction extends Component{
           transactionArr: newArr
         });
       }
-    this.TransactionList(objee)
-  }
+      this.TransactionList(objee);
+
+   }
+
   convertThis(event){
     var newArr =this.state.transactionArr;
     if(event==='USD'){
@@ -167,6 +168,7 @@ class Transaction extends Component{
     }
     this.setState({transactionArr: newArr})
   };
+
   usdToMxn(){var objee = {from: 'USD', to: 'MXN',value: 1 }
     this.TransactionList(objee);
   }
@@ -205,7 +207,8 @@ class Transaction extends Component{
         if(to==='EUR'){
           this.setState({eur: (responseJson.rates[to]*value)})
         }
-      })
+
+      });
   }
   render(){
     return (

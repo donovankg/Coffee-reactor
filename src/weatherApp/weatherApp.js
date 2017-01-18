@@ -39,7 +39,7 @@ class Weather extends Component {
       <div>
         <input type="text" className="main-info-search"
            placeholder="The weather in ..." onKeyPress={ this.notify}/>
-        <div id="layout-content" className="lauout-content-wrapper">
+        <div id="layout-content" className="layout-content-wrapper">
             <div className="main-info-city-name">{ this.state.city }</div>
             <img src={ "http://openweathermap.org/img/w/" + this.state.icon + ".png" } alt="weather_icon" className="day-info-img" />
             <div className="main-info-description">{ this.state.description }</div>
