@@ -74,11 +74,10 @@ class DashContent extends Component {
         </div>
         <div className="col-md-12">
         <div className ="container-fluid titles">
-          <h4>To Do List</h4>
+          <h4>Transaction App</h4>
         </div>
           <div  className="content-bottom">
-            <TodoApp>
-            </TodoApp>
+
           </div>
         </div>
 
@@ -100,39 +99,42 @@ class DashContent extends Component {
 
         <div className="col-md-9">
         <div className ="container-fluid titles">
-          <h4>Fitness Tracker</h4>
+          <h4>Calendar</h4>
         </div>
         <div className="col-md-12 content-top "></div>
 
       </div>
 
-      <div className = "row">
+
         <div className="col-md-3">
 
-      <div className ="container-fluid titles">
-        <h4>Weather</h4>
-      </div>
-        <div id='weather' className="col-md-12 content-top">
-        <Weather />
-        </div>
-
-      </div>
-        <div className = "row">
-          <div className="col-md-12">
-          <div className ="container-fluid titles">
-            <h4>To Do List</h4>
-          </div>
-            <div  className="content-bottom">
-              <TodoApp>
-              </TodoApp>
+          <div className="row">
+            <div className="col-md-12">
+            <div className ="container-fluid titles">
+              <h4>Twitter</h4>
             </div>
+
+              <div id= 'weather'className="content-mid">
+                <Weather />
+              </div>
+            </div>
+            <div className="col-md-12">
+            <div className ="container-fluid titles">
+              <h4>To Do List</h4>
+            </div>
+              <div  className="content-bottom">
+                <TodoApp>
+                </TodoApp>
+              </div>
+            </div>
+
           </div>
-      </div>
+        </div>
     </div>
 </div>
 </div>
 </div>
-</div>
+
 
 
     )

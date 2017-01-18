@@ -62,6 +62,14 @@ nav ul {
 			color: white;
 		}
 
+    .content-mid {
+			padding: 9px;
+			min-height: 150px;
+      background-color: #3b3b3b;
+			/*background-image: url('../images/texture.png');*/
+			color: white;
+		}
+
 		.content-bottom {
 			padding: 6px;
 			min-height: 125px;
@@ -98,11 +106,15 @@ nav ul {
     }
 
     #weather {
+      height: 60px !important;
       text-align: center;
       align-items: center;
       margin: auto;
       padding: auto;
       align-content: center;
+    }
+    .weather {
+
     }
 
     #weather input {
