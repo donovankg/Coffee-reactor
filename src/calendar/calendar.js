@@ -101,8 +101,6 @@ calEditEnd(e,item){
   end = e.target.value;
 }
 
-
-
   render(){
 
   const showEvents = this.state.arr.map((item) =>{
@@ -115,8 +113,7 @@ calEditEnd(e,item){
           calEditDesc={this.calEditDesc.bind(this)}
           calEditStart={this.calEditStart.bind(this)}
           calEditEnd={this.calEditEnd.bind(this)}
-          calDelete={this.calDelete.bind(this)} item = {item}
-        />
+          calDelete={this.calDelete.bind(this)} item = {item}/>
       )
     })
     return(
