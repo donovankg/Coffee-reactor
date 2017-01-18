@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Cal from './calendar/calendar';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Button from 'react-bootstrap/lib/Button';
 import Clock from 'react-clock';
@@ -15,6 +16,13 @@ import Modal from 'react-bootstrap/lib/Modal';
 
 // http://react-component.github.io/calendar/
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      pickEvent:[],
+      selectedEvent: null
+    };
+  }
   render() {
     return (
       <div className="App">
@@ -24,10 +32,16 @@ class App extends Component {
         </DashContent>
 
         <Transaction />
+
+        <Cal />
+
       </div>
     );
   }
 }
+
+
+
 
 class Navi extends Component {
   render() {
@@ -62,6 +76,8 @@ const DashContent = React.createClass ({
   open () {
     this.setState({ showModal: true});
   },
+class DashContent extends Component {
+
   render () {
     return (
       <div className ="container-fluid dash" >
@@ -138,6 +154,7 @@ const DashContent = React.createClass ({
         <div id='weather' className="col-md-12 content-bottom">
         <Weather />
         </div>
+        <Transaction />
 
     </div>
 
