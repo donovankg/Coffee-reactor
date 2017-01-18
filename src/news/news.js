@@ -38,6 +38,7 @@ class News extends Component {
                 </ul>
               </div>
 
+
               <div className="col-md-9">
                   <img src= {this.state.image} role="presentation"/>
 

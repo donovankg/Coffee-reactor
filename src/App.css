@@ -8,6 +8,7 @@ nav{
   background-color: #3b3b3b;
   color: white;
   box-shadow: 4px 3px 8px rgb(0, 0, 0);
+
 }
 nav ul {
   position: absolute;
@@ -15,6 +16,7 @@ nav ul {
   text-align: center;
   padding: 0px
 }
+
  nav ul li{
   background-color: #F47A20;
 
@@ -78,7 +80,6 @@ nav ul {
       color:white;
     }
     #news {
-
       max-height: 800px;
       /*overflow: hidden;*/
     }
@@ -124,9 +125,11 @@ nav ul {
 
     @brand-info:  #3b3b3b;
 
+
 .App {
   /*text-align: center;*/
 }
+
 
 #hidden{
   display: none
@@ -134,7 +137,6 @@ nav ul {
 #hiddenn{
     display: block
 }
-
 @media only screen and (max-width : 375px) {
   nav{
 
