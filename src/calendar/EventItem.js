@@ -1,6 +1,8 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
+
 const EventItem=({item, calEditTitle, calEditDesc, calDelete, calEditStart, calEditEnd, calSave, handleChange, thisState}) => {
+
 
   const title=item.title;
   const start=item.start;

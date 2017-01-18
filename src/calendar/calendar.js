@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import './css/react-big-calendar.css';
+import CalendarCrud from './crud';
 import myEventsList from '../events/events';
 import EventItem from './EventItem';
 import calEdit from './calEdit';
@@ -15,10 +16,10 @@ let descCheck = false;
 let startCheck = false;
 let endCheck = false;
 
-
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
+
 
 //move the function links to this file and break up each of the Components
 class MyCalendar extends Component{
