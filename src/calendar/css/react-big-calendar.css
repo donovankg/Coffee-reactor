@@ -3,6 +3,7 @@
   font: inherit;
   margin: 0;
 }
+
 button.rbc-btn {
   overflow: visible;
   text-transform: none;
@@ -97,7 +98,6 @@ button.rbc-input::-moz-focus-inner {
   text-align: center;
 }
 .rbc-toolbar button {
-  color: #373a3c;
   display: inline-block;
   margin: 0;
   text-align: center;

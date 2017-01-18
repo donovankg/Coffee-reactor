@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import './css/react-big-calendar.css';
+import CalendarCrud from './crud';
 import myEventsList from '../events/events';
 import EventItem from './EventItem';
 import calEdit from './calEdit';
@@ -15,10 +16,10 @@ let descCheck = false;
 let startCheck = false;
 let endCheck = false;
 
-
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
+
 
 class MyCalendar extends Component{
   constructor(props){
@@ -50,6 +51,7 @@ calNew() {
   // }else{
   //   setLength = newArr.length-1
   // }
+
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
@@ -101,6 +103,7 @@ calEditEnd(e,item){
   end = e.target.value;
 }
 
+
   render(){
 
   const showEvents = this.state.arr.map((item) =>{
@@ -114,6 +117,7 @@ calEditEnd(e,item){
           calEditStart={this.calEditStart.bind(this)}
           calEditEnd={this.calEditEnd.bind(this)}
           calDelete={this.calDelete.bind(this)} item = {item}/>
+
       )
     })
     return(

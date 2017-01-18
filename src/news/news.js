@@ -17,7 +17,7 @@ class News extends Component {
     return fetch("https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=39a06ecd5fba4f7ebe995729e8d95c15")
       .then((response)=> response.json())
       .then((responseJson) =>{
-
+        console.log(responseJson.articles.splice(1, 3));
         this.setState({news: responseJson.articles, image: responseJson.articles[0].urlToImage, description: responseJson.articles[0].description});
       });
   };
@@ -37,8 +37,10 @@ class News extends Component {
                   <br/>
                 </ul>
               </div>
+
               <div className="col-md-9">
                   <img src= {this.state.image} role="presentation"/>
+
                   <h5>{this.state.description}</h5>
               </div>
             </div>
