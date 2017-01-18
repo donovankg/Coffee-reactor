@@ -23,7 +23,7 @@ class App extends Component {
       </Navi>
           <DashContent>
           </DashContent>
-          <Transaction />
+
       </div>
     );
   }
@@ -32,7 +32,6 @@ class Navi extends Component {
   render() {
     return (
       <div>
-
     <nav className="navbar  navbar-fixed-top">
     <div className="container">
   <img src ={logo} className ="logo"/>
@@ -41,14 +40,12 @@ class Navi extends Component {
         <Clock/>
       </h2>
     </div>
-
   </div>
 </nav>
-
     </div>
-
-
-
+)
+}
+}
 const DashContent = React.createClass ({
  getInitialState () {
     return { showModal: false};
@@ -64,13 +61,11 @@ const DashContent = React.createClass ({
      <div className ="container-fluid dash" >
      <div className="row">
        <div className="col-md-4">
-
          <div className="row">
            <div className="col-md-12">
            <div className ="container-fluid titles">
              <h4>Twitter</h4>
            </div>
-
              <div id= 'twitter'className="content-top">
                <TwitterFeed />
              </div>
@@ -80,10 +75,9 @@ const DashContent = React.createClass ({
              <h4>Transaction App</h4>
            </div>
              <div  className="content-bottom">
-
+               <Transaction />
              </div>
            </div>
-
          </div>
        </div>
    <div className="col-md-8">
@@ -92,15 +86,12 @@ const DashContent = React.createClass ({
           <div className ="container-fluid titles">
             <h4>News</h4>
           </div>
-
-
           <div  className="content-top" >
             <News />
           </div>
         </div>
       </div>
       <div className="row">
-
         <div className="col-md-9">
           <div className ="container-fluid titles">
           <label>
@@ -120,13 +111,11 @@ const DashContent = React.createClass ({
               </Modal.Footer>
             </Modal>
          </div>
-        <div className="col-md-12 content-top "></div>
-
+        <div className="col-md-12 content-top ">
+        <Cal />
+        </div>
       </div>
-
-
         <div className="col-md-3">
-
           <div className="row">
             <div className="col-md-12">
             <div className ="container-fluid titles">
@@ -146,21 +135,14 @@ const DashContent = React.createClass ({
                 </TodoApp>
               </div>
             </div>
-
           </div>
         </div>
     </div>
-
 </div>
 </div>
 </div>
-
-
-
    )
-
-  }
-
+ }
 })
 
 export default App;
