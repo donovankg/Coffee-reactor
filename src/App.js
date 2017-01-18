@@ -13,9 +13,17 @@ import Modal from 'react-bootstrap/lib/Modal';
 // http://react-component.github.io/calendar/
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      pickEvent:[],
+      selectedEvent: null
+    };
+  }
   render() {
     return (
       <div className="App">
+
         <Navi></Navi>
         <DashContent>
         </DashContent>
@@ -24,6 +32,7 @@ class App extends Component {
     );
   }
 }
+
 class Navi extends Component {
   render() {
     return (
@@ -42,6 +51,7 @@ class Navi extends Component {
     );
   }
 }
+
 const DashContent = React.createClass ({
  getInitialState () {
     return { showModal: false};
