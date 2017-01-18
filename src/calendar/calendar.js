@@ -13,7 +13,7 @@ const MyCalendar = props => (
   <div>
 
     <CalendarCrud />
-    <BigCalendar className="col-md-4"
+    <BigCalendar className="col-md-12"
       events={myEventsList}
       style={{height: 400}}
       defaultDate={new Date(2015, 3, 1)}
