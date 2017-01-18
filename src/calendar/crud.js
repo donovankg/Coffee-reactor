@@ -24,7 +24,6 @@ function calDelete(index) {
   }
 }
 
-
 function calNew() {
   var newEvent = {
       'title': "New Event",
@@ -64,7 +63,7 @@ class CalendarCrud extends Component  {
   constructor(props){
     super(props);
     this.state = {
-      title: '',
+      title: "hi",
       desc: '',
       start: '',
       end: ''
@@ -75,6 +74,10 @@ class CalendarCrud extends Component  {
     this.calEditStart = this.calEditStart.bind(this);
     this.calEditEnd = this.calEditEnd.bind(this);
   }
+  componentDidUpdate(e){
+    console.log(e.target);
+    // this.setState(title: e.target.value);
+  }
 
   handleChange(event){
     this.setState({title:event.target.value});
@@ -84,6 +87,7 @@ class CalendarCrud extends Component  {
   calEditTitle(e,item){
     titleCheck = true;
     title = e.target.value;
+    this.componentDidUpdate(e);
     }
   calEditDesc(e, item){
     descCheck = true;
@@ -102,15 +106,17 @@ class CalendarCrud extends Component  {
 
   const showEvents = myEventsList.map((item) =>{
       return(
-        <EventItem key={item.id}
-        handleChange ={this.handleChange.bind(this)}
-        calSave={calSave.bind(this)}
-        calEditTitle={this.calEditTitle.bind(this)}
-        calEditDesc={this.calEditDesc.bind(this)}
-        calEditStart={this.calEditStart.bind(this)}
-        calEditEnd={this.calEditEnd.bind(this)}
-        calDelete={calDelete.bind(this)} item ={item}
-         />
+        <EventItem
+          newProp={this.state.title}
+          key={item.id}
+          handleChange ={this.handleChange.bind(this)}
+          calSave={calSave.bind(this)}
+          calEditTitle={this.calEditTitle.bind(this)}
+          calEditDesc={this.calEditDesc.bind(this)}
+          calEditStart={this.calEditStart.bind(this)}
+          calEditEnd={this.calEditEnd.bind(this)}
+          calDelete={calDelete.bind(this)} item ={item}
+        />
       )
     })
     return(
