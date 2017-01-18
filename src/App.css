@@ -106,14 +106,16 @@ nav ul {
     }
 
     #weather {
-      height: 60px !important;
+
       text-align: center;
       align-items: center;
       margin: auto;
       padding: auto;
       align-content: center;
+
     }
     .weather {
+
 
     }
 
@@ -127,8 +129,22 @@ nav ul {
       overflow: hidden;
     }
 
+
+    .cal-button {
+      margin-top: 5px;
+    }
+
+    @brand-info:  #3b3b3b;
+
 .App {
   /*text-align: center;*/
+}
+
+#hidden{
+  display: none
+}
+#hiddenn{
+    display: block
 }
 
 @media only screen and (max-width : 375px) {
