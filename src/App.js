@@ -106,20 +106,34 @@ class DashContent extends Component {
 
       </div>
 
-      <div className="col-md-3">
+      <div className = "row">
+        <div className="col-md-3">
+
       <div className ="container-fluid titles">
         <h4>Weather</h4>
       </div>
-        <div id='weather' className="col-md-12 content-bottom">
+        <div id='weather' className="col-md-12 content-top">
         <Weather />
         </div>
 
+      </div>
+        <div className = "row">
+          <div className="col-md-12">
+          <div className ="container-fluid titles">
+            <h4>To Do List</h4>
+          </div>
+            <div  className="content-bottom">
+              <TodoApp>
+              </TodoApp>
+            </div>
+          </div>
+      </div>
     </div>
+</div>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
-</div>
 
     )
   }
