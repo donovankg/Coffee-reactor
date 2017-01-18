@@ -11,6 +11,7 @@ BigCalendar.setLocalizer(
 );
 const MyCalendar = props => (
   <div>
+
     <CalendarCrud />
     <BigCalendar className="col-md-12"
       events={myEventsList}

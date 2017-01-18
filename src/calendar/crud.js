@@ -14,12 +14,12 @@ let descCheck = false;
 let startCheck = false;
 let endCheck = false;
 
-console.log('---->',myEventsList);
 
 class CalendarCrud extends Component  {
   constructor(props){
     super(props);
-    this.state = {arr:myEventsList};
+    this.state = {arr:myEventsList,title: ''};
+
     this.calSave = this.calSave.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.calEditTitle = this.calEditTitle.bind(this);
@@ -27,7 +27,6 @@ class CalendarCrud extends Component  {
     this.calEditStart = this.calEditStart.bind(this);
     this.calEditEnd = this.calEditEnd.bind(this);
   }
-
   calDelete(index) {
     // this.state.arr.splice(0,1);
     console.log(this.state.arr);
@@ -43,15 +42,17 @@ class CalendarCrud extends Component  {
 
 
   calLoad() {
-      var loadData = localStorage.getItem('myEventsList');
+      // var loadData = localStorage.getItem('myEventsList');
       // myEventsList = JSON.parse(loadData);
   }
    calSave(index, newTitle){
+
+    //  console.log(this.state.arr);
     if(descCheck){
       index.desc = desc;
     }
     if(titleCheck){
-      index.title = title;
+      index.title = this.state.title;
     }
     if(startCheck){
       index.start = start;
@@ -59,9 +60,15 @@ class CalendarCrud extends Component  {
     if(endCheck){
       index.end = end;
     }
+    var newArr = [...this.state.arr];
 
-    localStorage.setItem('myEventsList', JSON.stringify(myEventsList));
+    this.setState({arr:newArr},title:'');
+console.log(this.state.arr);
+
+    console.log(newArr[0]);
+    localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
     titleCheck, descCheck, startCheck, endCheck = false;
+    this.calLoad();
   }
 
   calNew() {
@@ -73,24 +80,31 @@ class CalendarCrud extends Component  {
         'id': myEventsList[myEventsList.length-1].id+1
     }
     myEventsList[myEventsList.length]= newEvent;
-    localStorage.setItem('myEventsList', JSON.stringify(myEventsList));
+    localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
 
   }
 
   componentDidUpdate(e){
-    console.log(e);
+    console.log('-----  e  ----',this.state.title);
     // this.setState(title: e.target.value);
   }
 
   handleChange(event){
+
     // this.setState({title:event.target.value});
-    console.log(event);
+    // console.log(event);
   }
 
   calEditTitle(e,item){
-    console.log(item);
+
+    console.log(e.target.value);
+    this.setState({title:e.target.value});
     titleCheck = true;
-    title = e.target.value;
+
+    console.log('here ',e.target);
+
+    // console.log(this.state.arr);
+    // title = e.target.value;
     // this.componentDidUpdate(e);
     }
   calEditDesc(e, item){
@@ -111,7 +125,7 @@ class CalendarCrud extends Component  {
   const showEvents = this.state.arr.map((item) =>{
       return(
         <EventItem
-          newProp={this.state.title}
+          thisState={this.state.arr}
           key={item.id}
           handleChange ={this.handleChange.bind(this)}
           calSave={this.calSave.bind(this)}
