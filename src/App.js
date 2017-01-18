@@ -16,18 +16,26 @@ import Transaction from './transactionApp/transactionApp';
 
 // http://react-component.github.io/calendar/
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      pickEvent:[],
+      selectedEvent: null
+    };
+  }
   render() {
     return (
       <div className="App">
-        <Navi></Navi>
-        <DashContent>
-        </DashContent>
+
         <Cal />
-        <Transaction />
+
       </div>
     );
   }
 }
+
+
+
 
 class Navi extends Component {
   render() {
@@ -49,6 +57,8 @@ class Navi extends Component {
     );
   }
 }
+
+
 
 class DashContent extends Component {
   render () {
