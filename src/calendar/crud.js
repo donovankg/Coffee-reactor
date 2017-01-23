@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import myEventsList from '../events/events';
 import EventItem from './EventItem';
+import '../App.css';
 
 
 
@@ -43,6 +44,7 @@ function calNew() {
       'end': new Date(),
       'id': myEventsList[myEventsList.length-1].id+1
   }
+  alert('new event created!!');
   myEventsList[myEventsList.length]= newEvent;
   localStorage.setItem('myEventsList', JSON.stringify(myEventsList));
 
@@ -111,9 +113,10 @@ class CalendarCrud extends Component  {
       )
     })
     return(
-        <div>
+        <div id="calendarTable">
+
           <button onClick={() => calNew()}>add</button>
-          <table>
+          <table className = "">
             <thead>
               <tr>
                 <th>title</th>

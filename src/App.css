@@ -81,7 +81,7 @@ nav ul {
 		}
 
     .titles {
-      height:45px;
+      height:38px;
       background-color: #F47A20;
       color:white;
     }
@@ -128,6 +128,22 @@ nav ul {
       max-height: 535px;
       overflow: hidden;
     }
+
+    #calendarTable {
+      color: black;
+      max-width: 400px;
+    }
+    #conversionWidget {
+      color: black;
+    }
+    .btn-primary {
+      border-color: none;
+      background-color: #F47A20;
+    }
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    background-color: #F47A20;
+    border-color: #ffffff; /*set the color you want here*/
+}
 
 
     .cal-button {

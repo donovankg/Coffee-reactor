@@ -19,9 +19,11 @@ let startCheck = false;
 let endCheck = false;
 
 
+
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
+
 
 
 class MyCalendar extends Component{

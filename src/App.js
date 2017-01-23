@@ -47,8 +47,8 @@ class Navi extends Component {
       <div>
     <nav className="navbar  navbar-fixed-top">
     <div className="container">
-  <img src ={logo} className ="logo"/>
-    <div className ="navbar-text">
+  <img src={logo} className="logo" role="presentation"/>
+    <div className="navbar-text">
       <h2>
         <Clock/>
       </h2>
@@ -57,6 +57,8 @@ class Navi extends Component {
 </nav>
     </div>
 )
+}
+
 }
 }
 
@@ -106,7 +108,9 @@ const DashContent = React.createClass ({
            <div className="col-md-12">
            <div className ="container-fluid titles">
              <h4>Twitter</h4>
-           </div>
+             </div>
+
+
              <div id= 'twitter'className="content-top">
                <TwitterFeed />
              </div>
@@ -128,7 +132,8 @@ const DashContent = React.createClass ({
             <h4>News</h4>
           </div>
           <div  className="content-top" >
-            <News />
+            <News/>
+
           </div>
         </div>
       </div>
