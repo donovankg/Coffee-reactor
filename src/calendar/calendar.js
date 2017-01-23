@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import './css/react-big-calendar.css';
+import './css/react-big-calendar.css';
+import './css/calFix.css';
+
 import CalendarCrud from './crud';
 import myEventsList from '../events/events';
 import EventItem from './EventItem';
@@ -42,7 +45,6 @@ calDelete(index) {
 
   var newArr = [...this.state.arr];
   this.setState({arr:newArr},title:'');
-  console.log(newArr);
   for(var key in newArr){
     if(newArr[key].id == index.id){
       newArr.splice(key,1);
@@ -69,10 +71,11 @@ var newEventId;
   }
 
   newArr[newArr.length]= newEvent;
-  console.log('newArr ',newArr);
-
   localStorage.setItem('myEventsList', JSON.stringify(newArr));
 }
+
+
+
 
 calSave(index, newTitle){
   if(descCheck){
@@ -96,10 +99,10 @@ calSave(index, newTitle){
 
 
 calEditTitle(e,item){
-  console.log(e.target.value);
+  // console.log(e.target.value);
   this.setState({title:e.target.value});
   titleCheck = true;
-  console.log('here ',e.target);
+  // console.log('here ',e.target);
 }
 calEditDesc(e, item){
   descCheck = true;
@@ -140,13 +143,13 @@ calEditEnd(e,item){
         <div className="tab-content">
           <div id="table" className="tab-pane fade">
             <button onClick={() => this.calNew()}>add</button>
-            <table>
+            <table className="col-md-12">
               <thead>
                 <tr>
-                  <th>title</th>
-                  <th>descrption</th>
-                  <th>start</th>
-                  <th>end</th>
+                  <th className="col-md-4">title</th>
+                  <th className="col-md-4">descrption</th>
+                  <th className="col-md-2">start</th>
+                  <th className="col-md-2">end</th>
                   <th>Save</th>
                   <th>Delete</th>
                 </tr>

@@ -119,10 +119,6 @@ const DashContent = React.createClass ({
           <label>
             <span><h4>Calendar</h4></span>
             </label>
-            <button type="submit" className="btn btn-default pull-right btn-sm cal-button"
-              onClick = {this.open}>
-           Add Event
-            </button>
 
             <Modal bsSize="large" show ={this.state.showModal} onHide = {this.close}>
               <Modal.Body>
