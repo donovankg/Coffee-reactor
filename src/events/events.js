@@ -87,4 +87,5 @@ let myEventsList = [];
 var loadData = localStorage.getItem('myEventsList');
 myEventsList = JSON.parse(loadData);
 
+
 export default myEventsList;

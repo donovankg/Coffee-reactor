@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import './css/react-big-calendar.css';
+import CalendarCrud from './crud';
 import myEventsList from '../events/events';
 import EventItem from './EventItem';
 import calEdit from './calEdit';
 import uuid from 'node-uuid';
 import TimePicker from './timePicker';
-
 
 let title = '';
 let desc = '';
@@ -22,6 +22,7 @@ let endCheck = false;
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
+
 
 class MyCalendar extends Component{
   constructor(props){
@@ -49,16 +50,7 @@ calNew() {
   this.setState({arr:newArr},title:'');
 var newEventId;
 
-//   if(newArr.length ==0){
-//
-//     newEventId = 0;
-//     console.log('new obj',newEventId);
-//
-//   }else{
-// newEventId = 1;
-//     // newEventId = newArr[newArr.length-1].id;
-//     console.log('add to obj',newArr);
-//   }
+
 
   var newEvent = {
       'title': "New Event",
@@ -70,6 +62,7 @@ var newEventId;
 
   newArr[newArr.length]= newEvent;
   console.log('newArr ',newArr);
+
   localStorage.setItem('myEventsList', JSON.stringify(newArr));
 }
 
@@ -126,6 +119,7 @@ calEditEnd(e,item){
           calEditStart={this.calEditStart.bind(this)}
           calEditEnd={this.calEditEnd.bind(this)}
           calDelete={this.calDelete.bind(this)} item = {item}/>
+
       )
     })
     return(
