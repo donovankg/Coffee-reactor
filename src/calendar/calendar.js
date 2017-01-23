@@ -2,15 +2,12 @@ import React, {Component} from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import './css/react-big-calendar.css';
-import './css/react-big-calendar.css';
 import './css/calFix.css';
-
 import CalendarCrud from './crud';
 import myEventsList from '../events/events';
 import EventItem from './EventItem';
 import calEdit from './calEdit';
 import uuid from 'node-uuid';
-import TimePicker from './timePicker';
 
 let title = '';
 let desc = '';
@@ -65,8 +62,8 @@ var newEventId;
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
-      'start': "2017-04-13T16:30:00.000Z",
-      'end': "2017-04-13T16:30:00.000Z",
+      'start': "2017-01-13T16:30:00.000Z",
+      'end': "2017-01-13T16:30:00.000Z",
       'id': uuid()
   }
 
@@ -146,10 +143,9 @@ calEditEnd(e,item){
             <table className="col-md-12">
               <thead>
                 <tr>
-                  <th className="col-md-4">title</th>
-                  <th className="col-md-4">descrption</th>
-                  <th className="col-md-2">start</th>
-                  <th className="col-md-2">end</th>
+                  <th className="">title</th>
+                  <th className="">descrption</th>
+                  <th className="">Time Line</th>
                   <th>Save</th>
                   <th>Delete</th>
                 </tr>

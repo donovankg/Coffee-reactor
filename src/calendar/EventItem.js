@@ -1,11 +1,12 @@
 import React from 'react';
-// 2017-04-13T16:30:00.000Z
+import Modal from 'react-modal';
 
 function editStart(){
   startMonth = "01";
   startDay = "15";
   testClick();
 }
+
 let startMinute;
 let startHour;
 let startDay;
@@ -13,6 +14,7 @@ let startMonth;
 let startYear;
 let start;
 let testClick;
+
 const EventItem=({item, calEditTitle, calEditDesc, calDelete, calEditStart, calEditEnd, calSave, handleChange, thisState}) => {
 
   testClick = function(){
@@ -39,15 +41,66 @@ const EventItem=({item, calEditTitle, calEditDesc, calDelete, calEditStart, calE
   const desc=item.desc;
   const setId=item.id;
 
-
+function checkStatus(){
+  console.log('works');
+}
   return(
 
     <tr className="calFix">
 
-        <td><input className="col-md-12" defaultValue={title} onChange={calEditTitle}/></td>
-        <td><input className="col-md-12" defaultValue={desc} onChange={calEditDesc}/></td>
-        <td><button onClick={() => editStart()}>{start}</button></td>
-        <td><button> {end}</button></td>
+        <td><input className="" defaultValue={title} onChange={calEditTitle}/></td>
+        <td><input className="" defaultValue={desc} onChange={calEditDesc}/></td>
+        <td>
+        <div className="col-md-12">
+          <span className="col-md-2">Start </span>
+          <input className="col-md-2" name="dayPicker" type="number" min="1" max="31" defaultValue={startDay} />
+          <select onChange={() =>checkStatus()} className="col-md-2" name="monthPicker">
+            <option value ="01"> Jan</option>
+            <option value ="02"> Feb</option>
+            <option value ="03"> Mar</option>
+            <option value ="04"> Apr</option>
+            <option value ="05"> May</option>
+            <option value ="06"> Jun</option>
+            <option value ="07"> Jul</option>
+            <option value ="08"> Aug</option>
+            <option value ="09"> Sept</option>
+            <option value ="10"> Oct</option>
+            <option value ="11"> Nov</option>
+            <option value ="12"> Dec</option>
+          </select>
+          <input className="col-md-2" name="yearPicker" type="number" min="2017"  defaultValue={startYear} />
+          <input className="col-md-2" name="hourPicker" type="number" min="0" max="24"  defaultValue={startHour} />
+          <select className="col-md-2" name="minutePicker">
+            <option value ="00">00</option>
+            <option value ="30">30</option>
+          </select>
+        </div>
+        <br />
+        <div className="col-md-12">
+        <span className="col-md-2">End </span>
+          <input className="col-md-2" name="dayPicker" type="number" min="1" max="31" defaultValue="1" />
+          <select className="col-md-2" name="monthPicker">
+            <option value ="1"> Jan</option>
+            <option value ="2"> Feb</option>
+            <option value ="3"> Mar</option>
+            <option value ="4"> Apr</option>
+            <option value ="5"> May</option>
+            <option value ="6"> Jun</option>
+            <option value ="7"> Jul</option>
+            <option value ="8"> Aug</option>
+            <option value ="9"> Sept</option>
+            <option value ="10"> Oct</option>
+            <option value ="11"> Nov</option>
+            <option value ="12"> Dec</option>
+          </select>
+          <input className="col-md-2" name="yearPicker" type="number" min="2017"  defaultValue="2017" />
+          <input className="col-md-2" name="hourPicker" type="number" min="0" max="24"  defaultValue="10" />
+          <select className="col-md-2" name="minutePicker">
+            <option value ="00">00</option>
+            <option value ="30">30</option>
+          </select>
+        </div>
+</td>
 
         <td><button onClick={() => calSave(item)}> Save </button> </td>
         <td><button onClick={() => calDelete(item)}> Delete </button></td>
