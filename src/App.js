@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/lib/Button';
 import Clock from 'react-clock';
 import News from './news/news';
 import Weather from  './weatherApp/weatherApp';
-
 import TwitterFeed from './twitterFeed/twitterFeed';
 import Transaction from './transactionApp/transactionApp';
 

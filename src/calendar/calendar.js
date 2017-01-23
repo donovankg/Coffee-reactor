@@ -5,6 +5,7 @@ import './css/react-big-calendar.css';
 import myEventsList from '../events/events';
 import EventItem from './EventItem';
 import calEdit from './calEdit';
+import uuid from 'node-uuid';
 
 let title = '';
 let desc = '';
@@ -44,20 +45,29 @@ calNew() {
   var newArr = [...this.state.arr];
 
   this.setState({arr:newArr},title:'');
-  let setLength;
-  // if(newArr[newArr.length-1]0){
-  //   setLength = 0;
-  // }else{
-  //   setLength = newArr.length-1
-  // }
+var newEventId;
+
+//   if(newArr.length ==0){
+//
+//     newEventId = 0;
+//     console.log('new obj',newEventId);
+//
+//   }else{
+// newEventId = 1;
+//     // newEventId = newArr[newArr.length-1].id;
+//     console.log('add to obj',newArr);
+//   }
+
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
-      'start': new Date(),
-      'end': new Date(),
-      'id': newArr[newArr.length-1].id+1
+      'start': "2015-04-13T16:30:00.000Z",
+      'end': "2015-04-13T16:30:00.000Z",
+      'id': uuid()
   }
+
   newArr[newArr.length]= newEvent;
+  console.log('newArr ',newArr);
   localStorage.setItem('myEventsList', JSON.stringify(newArr));
 }
 
