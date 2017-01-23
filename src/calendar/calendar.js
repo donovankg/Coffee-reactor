@@ -23,8 +23,14 @@ let endCheck = false;
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
-
-
+// const MyCalendar = props => (
+//   <div>
+//     <ul className ="nav nav-pills">
+//       <li className="active"><a data-toggle="tab" href="#calendarMain">Home</a></li>
+//       <li><a data-toggle="tab" href="#table">Home 1</a></li>
+//     </ul>
+// )
+//
 
 class MyCalendar extends Component{
   constructor(props){
@@ -112,6 +118,7 @@ calEditEnd(e,item){
 
   const showEvents = this.state.arr.map((item) =>{
       return(
+
         <EventItem
           thisState={this.state.arr}
           key={item.id}
@@ -125,27 +132,36 @@ calEditEnd(e,item){
       )
     })
     return(
-        <div>
-          <button onClick={() => this.calNew()}>add</button>
-          <table>
-            <thead>
-              <tr>
-                <th>title</th>
-                <th>descrption</th>
-                <th>start</th>
-                <th>end</th>
-                <th>Save</th>
-                <th>Delete</th>
-              </tr>
-              </thead>
-              <tbody>
-            {showEvents}
-            </tbody>
-          </table>
-          <BigCalendar className="col-md-12"
-            events={this.state.arr}
-            style={{height: 400}}
-          />
+      <div>
+        <ul className="nav nav-pills">
+          <li className="active"><a data-toggle="tab" href="#calendarMain">Home</a></li>
+          <li><a data-toggle="tab" href="#table">Menu 1</a></li>
+        </ul>
+        <div className="tab-content">
+          <div id="table" className="tab-pane fade">
+            <button onClick={() => this.calNew()}>add</button>
+            <table>
+              <thead>
+                <tr>
+                  <th>title</th>
+                  <th>descrption</th>
+                  <th>start</th>
+                  <th>end</th>
+                  <th>Save</th>
+                  <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+              {showEvents}
+              </tbody>
+            </table>
+          </div>
+          <div id ="calendarMain" className="tab-pane fade in active">
+            <BigCalendar className="col-md-12"
+              events={this.state.arr}
+              style={{height: 400}}/>
+          </div>
+        </div>
 
         </div>
     )

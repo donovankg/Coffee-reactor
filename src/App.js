@@ -60,33 +60,9 @@ class Navi extends Component {
 }
 
 }
-}
 
 
-class DashContent extends Component {
-  render () {
-    return (
-      <div className ="container-fluid" id="containerContent" >
-      <div className="row">
 
-    <div className="col-md-4">
-
-      <div className="row">
-        <div className="col-md-12">
-        <div className ="container-fluid titles">
-          <h4>Twitter</h4>
-        </div>
-
-          <div id= 'twitter'className="content-top">
-            <TwitterFeed />
-          </div>
-        </div>
-        <div className="col-md-12">
-        <div className ="container-fluid titles">
-          <h4>Music</h4>
-        </div>
-          <div  className="content-bottom"></div>
-        </div>
 
 
 const DashContent = React.createClass ({
