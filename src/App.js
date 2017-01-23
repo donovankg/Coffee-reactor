@@ -7,6 +7,7 @@ import Clock from 'react-clock';
 import News from './news/news';
 import Weather from  './weatherApp/weatherApp';
 import Cal from './calendar/calendar';
+
 import TwitterFeed from './twitterFeed/twitterFeed';
 import Transaction from './transactionApp/transactionApp';
 import TodoApp from './todoList/todoapp'
@@ -26,11 +27,11 @@ class App extends Component {
     return (
       <div className="App">
 
+
       <Navi>
       </Navi>
           <DashContent>
           </DashContent>
-
 
       </div>
     );
@@ -58,6 +59,32 @@ class Navi extends Component {
 )
 }
 }
+
+
+class DashContent extends Component {
+  render () {
+    return (
+      <div className ="container-fluid" id="containerContent" >
+      <div className="row">
+
+    <div className="col-md-4">
+
+      <div className="row">
+        <div className="col-md-12">
+        <div className ="container-fluid titles">
+          <h4>Twitter</h4>
+        </div>
+
+          <div id= 'twitter'className="content-top">
+            <TwitterFeed />
+          </div>
+        </div>
+        <div className="col-md-12">
+        <div className ="container-fluid titles">
+          <h4>Music</h4>
+        </div>
+          <div  className="content-bottom"></div>
+        </div>
 
 
 const DashContent = React.createClass ({
