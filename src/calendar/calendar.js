@@ -23,14 +23,7 @@ let endCheck = false;
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
-// const MyCalendar = props => (
-//   <div>
-//     <ul className ="nav nav-pills">
-//       <li className="active"><a data-toggle="tab" href="#calendarMain">Home</a></li>
-//       <li><a data-toggle="tab" href="#table">Home 1</a></li>
-//     </ul>
-// )
-//
+
 
 class MyCalendar extends Component{
   constructor(props){
@@ -55,15 +48,15 @@ calNew() {
   var newArr = [...this.state.arr];
 
   this.setState({arr:newArr},title:'');
-var newEventId;
+  var newEventId;
 
 
 
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
-      'start': "2017-01-13T16:30:00.000Z",
-      'end': "2017-01-13T16:30:00.000Z",
+      'start': "2017-02-04T16:00:00.000Z",
+      'end': "2017-02-14T18:00:00.000Z",
       'id': uuid()
   }
 
