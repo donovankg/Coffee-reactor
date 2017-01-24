@@ -50,19 +50,19 @@ function checkStatus(){
         <div className="col-md-12">
           <span className="col-md-2">Start </span>
           <input onChange={calDayStart} className="col-md-2" name="dayPicker" type="number" min="1" max="31" defaultValue={startDay} />
-          <select onChange={calMonthStart} defaultValue={startMonth} className="col-md-4" name="monthPicker">
-            <option value ="00"> Jan</option>
-            <option value ="01"> Feb</option>
-            <option value ="02"> Mar</option>
-            <option value ="03"> Apr</option>
-            <option value ="04"> May</option>
-            <option value ="05"> Jun</option>
-            <option value ="06"> Jul</option>
-            <option value ="07"> Aug</option>
-            <option value ="08"> Sept</option>
-            <option value ="09"> Oct</option>
-            <option value ="10"> Nov</option>
-            <option value ="11"> Dec</option>
+          <select onChange={calMonthStart} className="col-md-4" name="monthPicker">
+            <option value ="01"> Jan</option>
+            <option value ="02"> Feb</option>
+            <option value ="03"> Mar</option>
+            <option value ="04"> Apr</option>
+            <option value ="05"> May</option>
+            <option value ="06"> Jun</option>
+            <option value ="07"> Jul</option>
+            <option value ="08"> Aug</option>
+            <option value ="09"> Sept</option>
+            <option value ="10"> Oct</option>
+            <option value ="11"> Nov</option>
+            <option value ="12"> Dec</option>
           </select>
           <input onChange={calYearStart} className="col-md-4" name="yearPicker" type="number"  defaultValue={startYear} />
         </div>
@@ -72,7 +72,7 @@ function checkStatus(){
         <div className="col-md-12">
         <span className="col-md-2">End </span>
         <input className="col-md-2" name="dayPicker" type="number" min="1" max="31" defaultValue={endDay} />
-        <select onChange={calEditEnd} defaultValue={endMonth} className="col-md-4" name="monthPicker">
+        <select onChange={calEditEnd} className="col-md-4" name="monthPicker">
           <option value ="00"> Jan</option>
           <option value ="01"> Feb</option>
           <option value ="02"> Mar</option>

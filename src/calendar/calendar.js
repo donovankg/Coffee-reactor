@@ -78,7 +78,9 @@ calSave(index, newTitle){
   // if(startCheck){
     //collect the date object from eventItem and pass it into index.start
 
-    index.start=holdYear+"-"+holdMonth+"T"+holdDay+":00:00:00:000Z";
+    index.start=holdYear+"-"+holdMonth+"-"+holdDay+"T10:00:00.000Z";
+            // 2017-01-14T06:00:00.000Z
+
     //go into eventItem change it from a lot of vars to one object with lots of props
     // index.start = new Date(holdYear,holdMonth,holdDay,0,0,0);
     console.log('---->',index.start);
@@ -109,20 +111,25 @@ calEditDesc(e, item){
 
 calDayStart(e, item){
   startCheck = true;
-  console.log('this is e', e.target.value);
-  holdDay = e.target.value;
+  if(e.target.value < 10){
+      holdDay = "0"+e.target.value;
+  }else{
+      holdDay = e.target.value;
+  }
+  console.log('this is Day', holdDay);
+
 }
 
 calMonthStart(e,item){
   startCheck = true;
-  console.log('this is e', e.target.value);
+  console.log('this is month- ', e.target.value);
   holdMonth = e.target.value;
   // console.log('this is start',start);
 }
 
 calYearStart(e,item){
   startCheck = true;
-  console.log('this is e', e.target.value);
+  console.log('this is year', e.target.value);
   holdYear = e.target.value;
 }
 
