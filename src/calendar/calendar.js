@@ -52,6 +52,7 @@ calNew() {
   this.setState({arr:newArr},title:'');
   var newEventId;
 
+
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
