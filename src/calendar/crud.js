@@ -24,17 +24,6 @@ function calDelete(index) {
     }
   }
 }
-// function calEdit(index) {
-//   console.log(index);
-//   for(var key in myEventsList){
-//     if(myEventsList[key].id === index.id){
-//       console.log(myEventsList[key].title);
-//       // myEventsList[key].title = 'Edited'; //from input box
-//       localStorage.setItem('myEventsList', JSON.stringify(myEventsList));
-//     }
-//   }
-// }
-
 
 
 function calNew() {
