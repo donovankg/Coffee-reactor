@@ -15,21 +15,29 @@ let start = new Date();
 let end = new Date();
 let titleCheck = false;
 let descCheck = false;
+
 let startDayCheck = false;
 let startMonthCheck = false;
 let startYearCheck = false;
-let endCheck = false;
+let holdStartDay;
+let holdStartMonth;
+let holdStartYear;
 
-let holdDay;
-let holdMonth;
-let holdYear;
+let endDayCheck = false;
+let endMonthCheck = false;
+let endYearCheck = false;
+let holdEndDay;
+let holdEndMonth;
+let holdEndYear;
+
+
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
 
 function resetChecks(){
   console.log('reseting stuff');
-    titleCheck, descCheck, startDayCheck,startMonthCheck, startYearCheck, endCheck = false;
+    titleCheck, descCheck, startDayCheck,startMonthCheck, startYearCheck, endDayCheck, endMonthCheck, endYearCheck = false;
 }
 class MyCalendar extends Component{
   constructor(props){
@@ -78,20 +86,26 @@ calSave(index, newTitle){
     index.title = this.state.title;
   }
   if(startDayCheck == false){
-    holdDay = index.start.slice(8,10);
-    console.log(holdDay);
+    holdStartDay = index.start.slice(8,10);
   }
   if(startMonthCheck == false){
-      holdMonth = index.start.slice(5,7);
+      holdStartMonth = index.start.slice(5,7);
   }
   if(startYearCheck == false){
-    holdYear = parseInt(index.start.slice(0,4));
+    holdStartYear = parseInt(index.start.slice(0,4));
   }
-  index.start=holdYear+"-"+holdMonth+"-"+holdDay+"T10:00:00.000Z";
+  index.start=holdStartYear+"-"+holdStartMonth+"-"+holdStartDay+"T10:00:00.000Z";
 
-  if(endCheck){
-    index.end = end;
+  if(endDayCheck == false){
+    holdEndDay = index.end.slice(8,10);
   }
+  if(endMonthCheck == false){
+      holdEndMonth = index.end.slice(5,7);
+  }
+  if(endYearCheck == false){
+    holdEndYear = parseInt(index.end.slice(0,4));
+  }
+  index.end=holdEndYear+"-"+holdEndMonth+"-"+holdEndDay+"T11:00:00.000Z";
   var newArr = [...this.state.arr];
 
   this.setState({arr:newArr},title:'');
@@ -115,30 +129,42 @@ calEditDesc(e, item){
 
 calDayStart(e, item){
   if(e.target.value < 10){
-      holdDay = "0"+e.target.value;
+      holdStartDay = "0"+e.target.value;
   }else{
-      holdDay = e.target.value;
+      holdStartDay = e.target.value;
   }
-  console.log('this is Day', holdDay);
   startDayCheck = true;
 }
 
 calMonthStart(e,item){
-  console.log('this is month- ', e.target.value);
-  holdMonth = e.target.value;
+  holdStartMonth = e.target.value;
   startMonthCheck = true;
 }
 
 calYearStart(e,item){
-  console.log('this is year', e.target.value);
-  holdYear = e.target.value;
+  holdStartYear = e.target.value;
   startYearCheck = true;
 }
 
-calEditEnd(e,item){
-  endCheck = true;
-  end = e.target.value;
+calDayEnd(e, item){
+  if(e.target.value < 10){
+      holdEndDay = "0"+e.target.value;
+  }else{
+      holdEndDay = e.target.value;
+  }
+  endDayCheck = true;
 }
+
+calMonthEnd(e,item){
+  holdEndMonth = e.target.value;
+  endMonthCheck = true;
+}
+
+calYearEnd(e,item){
+  holdEndYear = e.target.value;
+  endYearCheck = true;
+}
+
 
   render(){
 
@@ -154,7 +180,9 @@ calEditEnd(e,item){
           calMonthStart={this.calMonthStart.bind(this)}
           calYearStart={this.calYearStart.bind(this)}
           calDayStart={this.calDayStart.bind(this)}
-          calEditEnd={this.calEditEnd.bind(this)}
+          calMonthEnd={this.calMonthEnd.bind(this)}
+          calYearEnd={this.calYearEnd.bind(this)}
+          calDayEnd={this.calDayEnd.bind(this)}
           calDelete={this.calDelete.bind(this)} item = {item}/>
 
       )
