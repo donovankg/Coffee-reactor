@@ -29,6 +29,7 @@ console.log(item.start);
   let endMonth = item.end.slice(5,7);
   let endYear = parseInt(item.end.slice(0,3))+1816;
   let end = endMonth+'/'+endDay+'/'+endYear;
+
   const title=item.title;
   const desc=item.desc;
   const setId=item.id;
@@ -38,6 +39,7 @@ function checkStatus(){
   console.log(outgoingStart);
   // console.log('works');
   calMonthStart(outgoingStart);
+
 
 }
   return(
@@ -51,6 +53,7 @@ function checkStatus(){
           <span className="col-md-2">Start </span>
           <input onChange={calDayStart} className="col-md-2" name="dayPicker" type="number" min="1" max="31" defaultValue={startDay} />
           <select onChange={calMonthStart} className="col-md-4" name="monthPicker">
+
             <option value ="01"> Jan</option>
             <option value ="02"> Feb</option>
             <option value ="03"> Mar</option>
@@ -65,6 +68,7 @@ function checkStatus(){
             <option value ="12"> Dec</option>
           </select>
           <input onChange={calYearStart} className="col-md-4" name="yearPicker" type="number"  defaultValue={startYear} />
+
         </div>
         <br />
 
@@ -89,6 +93,7 @@ function checkStatus(){
         <input onChange={calYearEnd} className="col-md-4" name="yearPicker" type="number"  defaultValue={endYear} />
 
       </div>
+
 </td>
 
         <td><button onClick={() => calSave(item)}> Save </button> </td>

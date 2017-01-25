@@ -35,6 +35,7 @@ BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
 
+
 function resetChecks(){
   console.log('reseting stuff');
     titleCheck, descCheck, startDayCheck,startMonthCheck, startYearCheck, endDayCheck, endMonthCheck, endYearCheck = false;
@@ -64,6 +65,7 @@ calNew() {
   this.setState({arr:newArr},title:'');
   var newEventId;
 
+
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
@@ -79,6 +81,7 @@ calNew() {
 
 calSave(index, newTitle){
   console.log('this is index',index.start);
+
   if(descCheck){
     index.desc = desc;
   }
@@ -98,6 +101,7 @@ calSave(index, newTitle){
 
   if(endDayCheck == false){
     holdEndDay = index.end.slice(8,10);
+
   }
   if(endMonthCheck == false){
       holdEndMonth = index.end.slice(5,7);
@@ -139,6 +143,7 @@ calDayStart(e, item){
 calMonthStart(e,item){
   holdStartMonth = e.target.value;
   startMonthCheck = true;
+
 }
 
 calYearStart(e,item){
