@@ -19,7 +19,7 @@ import { Timeline } from 'react-twitter-widgets'
           options={{
             username: 'TwitterDev',
             height: '700'
-          }} onLoad={() => console.log('Timeline is loaded!')} />
+          }} />
 
         );
     }

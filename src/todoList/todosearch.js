@@ -1,9 +1,9 @@
-import React, { Component} from 'react';
+import React from 'react';
 
-const TodoSearch = React.createClass({
+const TodoSearch=React.createClass({
   handleSearch: function () {
-    var showCompleted = this.refs.showCompleted.checked;
-    var searchText = this.refs.searchText.value;
+    var showCompleted=this.refs.showCompleted.checked;
+    var searchText=this.refs.searchText.value;
 
     this.props.onSearch(showCompleted, searchText);
   },
@@ -11,11 +11,11 @@ const TodoSearch = React.createClass({
     return (
       <div>
         <div>
-          <input className = "form-control" type = "search" ref = "searchText" placeholder = "Search todos" onChange = {this.handleSearch}/>
+          <input className="form-control" type="search" ref="searchText" placeholder="Search todos" onChange={this.handleSearch}/>
         </div>
-        <div className = "checkbox">
+        <div className="checkbox">
           <label>
-            <input type = "checkbox" ref = "showCompleted" onChange = {this.handleSearch} />
+            <input type="checkbox" ref="showCompleted" onChange={this.handleSearch} />
             Show completed todos
 
           </label>

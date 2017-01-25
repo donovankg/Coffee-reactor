@@ -1,9 +1,10 @@
 import React from 'react';
+import uuid from 'node-uuid';
 
 const Table =({transactionArr, editThis, deleteThis})=> {
 
-  const trans = transactionArr.map((item) =>{
-    return <tr>
+  const trans=transactionArr.map((item) =>{
+    return <tr key={uuid()}>
               <td>{item.title}</td>
               <td>{item.amount}</td>
               <td>{item.convert}</td>

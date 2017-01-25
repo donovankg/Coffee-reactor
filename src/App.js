@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg'
 import './App.css';
-import Navbar from 'react-bootstrap/lib/Navbar';
+
 import Button from 'react-bootstrap/lib/Button';
 import Clock from 'react-clock';
 import News from './news/news';
@@ -18,7 +18,7 @@ import Modal from 'react-bootstrap/lib/Modal';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
+    this.state={
       pickEvent:[],
       selectedEvent: null
     };
@@ -65,7 +65,7 @@ class Navi extends Component {
 
 
 
-const DashContent = React.createClass ({
+const DashContent=React.createClass ({
  getInitialState () {
     return { showModal: false};
   },
@@ -77,22 +77,22 @@ const DashContent = React.createClass ({
   },
  render () {
    return (
-     <div className ="container-fluid dash" >
+     <div className="container-fluid dash" >
      <div className="row">
        <div className="col-md-4">
          <div className="row">
            <div className="col-md-12">
-           <div className ="container-fluid titles">
+           <div className="container-fluid titles">
              <h4>Twitter</h4>
              </div>
 
 
-             <div id= 'twitter'className="content-top">
+             <div id='twitter'className="content-top">
                <TwitterFeed />
              </div>
            </div>
            <div className="col-md-12">
-           <div className ="container-fluid titles">
+           <div className="container-fluid titles">
              <h4>Transaction App</h4>
            </div>
              <div  className="content-bottom">
@@ -104,7 +104,7 @@ const DashContent = React.createClass ({
    <div className="col-md-8">
       <div className="row">
        <div id="news" className="col-md-12">
-          <div className ="container-fluid titles">
+          <div className="container-fluid titles">
             <h4>News</h4>
           </div>
           <div  className="content-top" >
@@ -115,16 +115,12 @@ const DashContent = React.createClass ({
       </div>
       <div className="row">
         <div className="col-md-9">
-          <div className ="container-fluid titles">
+          <div className="container-fluid titles">
           <label>
             <span><h4>Calendar</h4></span>
             </label>
-            <button type="submit" className="btn btn-default pull-right btn-sm cal-button"
-              onClick = {this.open}>
-           Add Event
-            </button>
 
-            <Modal bsSize="large" show ={this.state.showModal} onHide = {this.close}>
+            <Modal bsSize="large" show={this.state.showModal} onHide={this.close}>
               <Modal.Body>
                 <h4>Modal is working</h4>
               </Modal.Body>
@@ -140,16 +136,16 @@ const DashContent = React.createClass ({
         <div className="col-md-3">
           <div className="row">
             <div className="col-md-12">
-            <div className ="container-fluid titles">
+            <div className="container-fluid titles">
               <h4>Twitter</h4>
             </div>
 
-              <div id= 'weather'className="content-mid">
+              <div id='weather'className="content-mid">
                 <Weather />
               </div>
             </div>
             <div className="col-md-12">
-            <div className ="container-fluid titles">
+            <div className="container-fluid titles">
               <h4>To Do List</h4>
             </div>
               <div  className="content-bottom">

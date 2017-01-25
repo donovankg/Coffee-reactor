@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-
-console.log('calEdit added');
-
-class calEdit extends Component{
-
-}
-
-export default calEdit;
+// import React, {Component} from 'react';
+//
+// console.log('calEdit added');
+//
+// class calEdit extends Component{
+//
+// }
+//
+// export default calEdit;
