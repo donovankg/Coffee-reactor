@@ -18,7 +18,7 @@ let testClick;
 const EventItem=({item, calEditTitle, calEditDesc, calDelete, calDayStart, calMonthStart, calYearStart, calEditEnd,
   calDayEnd, calMonthEnd, calYearEnd, calSave, handleChange, thisState}) => {
 
-console.log(item.start);
+// console.log(item.start);
   startDay = item.start.slice(8,10);
   startMonth = item.start.slice(5,7);
   startYear = parseInt(item.start.slice(0,4))
@@ -36,7 +36,7 @@ console.log(item.start);
 
 function checkStatus(){
   let outgoingStart = new Date(startYear, startMonth, startDay);
-  console.log(outgoingStart);
+  // console.log(outgoingStart);
   // console.log('works');
   calMonthStart(outgoingStart);
 

@@ -37,7 +37,7 @@ BigCalendar.setLocalizer(
 
 
 function resetChecks(){
-  console.log('reseting stuff');
+  // console.log('reseting stuff');
     titleCheck, descCheck, startDayCheck,startMonthCheck, startYearCheck, endDayCheck, endMonthCheck, endYearCheck = false;
 }
 class MyCalendar extends Component{
@@ -79,7 +79,7 @@ calNew() {
 
 
 calSave(index, newTitle){
-  console.log('this is index',index.start);
+  // console.log('this is index',index.start);
 
   if(descCheck){
     index.desc = desc;
