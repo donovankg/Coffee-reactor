@@ -8,6 +8,7 @@ import myEventsList from '../events/events';
 import EventItem from './EventItem';
 import calEdit from './calEdit';
 import uuid from 'node-uuid';
+import '../App.css';
 
 let title = '';
 let desc = '';
@@ -199,7 +200,7 @@ calYearEnd(e,item){
         </ul>
         <div className="tab-content">
           <div id="table" className="tab-pane fade">
-            <button onClick={() => this.calNew()}>add</button>
+            <button className = "btn btn-primary" onClick={() => this.calNew()}>add</button>
             <table className="col-md-12">
               <thead>
                 <tr>
