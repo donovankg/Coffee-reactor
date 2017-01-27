@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Todo from './todo';
 
-const TodoList = React.createClass({
+const TodoList=React.createClass({
   render: function() {
-    let {todos} = this.props;
-    let renderTodos = ()=> {
+    let {todos}=this.props;
+    let renderTodos=()=> {
       return todos.map((todo) => {
         return (
-          <Todo key={todo.id} {...todo} onToggle = {this.props.onToggle}/>
+          <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
         );
       });
     };

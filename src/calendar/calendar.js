@@ -65,12 +65,11 @@ calNew() {
   this.setState({arr:newArr},title:'');
   var newEventId;
 
-
   var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
-      'start': "2017-02-04T16:00:00.000Z",
-      'end': "2017-02-14T18:00:00.000Z",
+      'start': "2017-01-04T16:00:00.000Z",
+      'end': "2017-01-14T18:00:00.000Z",
       'id': uuid()
   }
 
