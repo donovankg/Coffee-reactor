@@ -37,7 +37,7 @@ class Weather extends Component {
   render(){
     return (
       <div>
-        <input type="text" className="main-info-search"
+        <input type="text" className="form-control main-info-search"
            placeholder="The weather in ..." onKeyPress={ this.notify}/>
         <div id="layout-content" className="layout-content-wrapper">
             <div className="main-info-city-name">{ this.state.city }</div>
