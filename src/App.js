@@ -137,7 +137,7 @@ const DashContent=React.createClass ({
           <div className="row">
             <div className="col-md-12">
             <div className="container-fluid titles">
-              <h4>Twitter</h4>
+              <h4>Weather</h4>
             </div>
 
               <div id='weather'className="content-mid">

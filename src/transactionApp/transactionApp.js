@@ -197,7 +197,7 @@ class Transaction extends Component{
     var from =changes.from;
     var to =changes.to;
     var value =changes.value;
-    return fetch('http://api.fixer.io/latest?base='+from+'&symbols='+from+','+to)
+    return fetch('https://api.fixer.io/latest?base='+from+'&symbols='+from+','+to)
       .then((response)=> response.json())
       .then((responseJson)=>{
         this.setState({converted: ((responseJson.rates[to]*value)||value)});
