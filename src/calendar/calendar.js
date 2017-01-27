@@ -9,24 +9,37 @@ import EventItem from './EventItem';
 import calEdit from './calEdit';
 import uuid from 'node-uuid';
 
-let title='';
-let desc='';
-let start=new Date();
-let end=new Date();
-let titleCheck=false;
-let descCheck=false;
-let startCheck=false;
-let endCheck=false;
+let title = '';
+let desc = '';
+let start = new Date();
+let end = new Date();
+let titleCheck = false;
+let descCheck = false;
 
-let holdDay;
-let holdMonth;
-let holdYear;
-let holdDate;
+let startDayCheck = false;
+let startMonthCheck = false;
+let startYearCheck = false;
+let holdStartDay;
+let holdStartMonth;
+let holdStartYear;
+
+let endDayCheck = false;
+let endMonthCheck = false;
+let endYearCheck = false;
+let holdEndDay;
+let holdEndMonth;
+let holdEndYear;
+
+
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
 
 
+function resetChecks(){
+  console.log('reseting stuff');
+    titleCheck, descCheck, startDayCheck,startMonthCheck, startYearCheck, endDayCheck, endMonthCheck, endYearCheck = false;
+}
 class MyCalendar extends Component{
   constructor(props){
     super(props);
@@ -35,10 +48,10 @@ class MyCalendar extends Component{
 
 calDelete(index) {
 
-  var newArr=[...this.state.arr];
+  var newArr = [...this.state.arr];
   this.setState({arr:newArr},title:'');
   for(var key in newArr){
-    if(newArr[key].id==index.id){
+    if(newArr[key].id == index.id){
       newArr.splice(key,1);
     }
   }
@@ -47,101 +60,119 @@ calDelete(index) {
 }
 
 calNew() {
-  var newArr=[...this.state.arr];
+  var newArr = [...this.state.arr];
 
   this.setState({arr:newArr},title:'');
   var newEventId;
 
-
-  var newEvent={
+  var newEvent = {
       'title': "New Event",
       'desc': 'new desc',
-      'start': "2017-02-04T16:00:00.000Z",
-      'end': "2017-02-14T18:00:00.000Z",
+      'start': "2017-01-04T16:00:00.000Z",
+      'end': "2017-01-14T18:00:00.000Z",
       'id': uuid()
   }
 
-  newArr[newArr.length]=newEvent;
+  newArr[newArr.length]= newEvent;
   localStorage.setItem('myEventsList', JSON.stringify(newArr));
 }
 
 
-
-
 calSave(index, newTitle){
-  console.log(index);
+  console.log('this is index',index.start);
+
   if(descCheck){
-    index.desc=desc;
+    index.desc = desc;
   }
   if(titleCheck){
-    index.title=this.state.title;
+    index.title = this.state.title;
   }
-  // if(startCheck){
-    //collect the date object from eventItem and pass it into index.start
-
-    index.start=holdYear+"-"+holdMonth+"-"+holdDay+"T10:00:00.000Z";
-            // 2017-01-14T06:00:00.000Z
-
-    //go into eventItem change it from a lot of vars to one object with lots of props
-    // index.start=new Date(holdYear,holdMonth,holdDay,0,0,0);
-    console.log('---->',index.start);
-  // }
-  if(endCheck){
-    index.end=end;
+  if(startDayCheck == false){
+    holdStartDay = index.start.slice(8,10);
   }
-  var newArr=[...this.state.arr];
+  if(startMonthCheck == false){
+      holdStartMonth = index.start.slice(5,7);
+  }
+  if(startYearCheck == false){
+    holdStartYear = parseInt(index.start.slice(0,4));
+  }
+  index.start=holdStartYear+"-"+holdStartMonth+"-"+holdStartDay+"T10:00:00.000Z";
+
+  if(endDayCheck == false){
+    holdEndDay = index.end.slice(8,10);
+
+  }
+  if(endMonthCheck == false){
+      holdEndMonth = index.end.slice(5,7);
+  }
+  if(endYearCheck == false){
+    holdEndYear = parseInt(index.end.slice(0,4));
+  }
+  index.end=holdEndYear+"-"+holdEndMonth+"-"+holdEndDay+"T11:00:00.000Z";
+  var newArr = [...this.state.arr];
 
   this.setState({arr:newArr},title:'');
   localStorage.setItem('myEventsList', JSON.stringify(this.state.arr));
-  titleCheck, descCheck, startCheck, endCheck=false;
+  resetChecks()
 }
 
 
 calEditTitle(e,item){
   console.log('testing calEditTitle',e.target.value);
   this.setState({title:e.target.value});
-  titleCheck=true;
+  titleCheck = true;
   // console.log('here ',e.target);
 }
 calEditDesc(e, item){
-  descCheck=true;
-  desc=e.target.value;
+  descCheck = true;
+  desc = e.target.value;
   console.log(desc);
 }
 
 
 calDayStart(e, item){
-  startCheck=true;
   if(e.target.value < 10){
-      holdDay="0"+e.target.value;
+      holdStartDay = "0"+e.target.value;
   }else{
-      holdDay=e.target.value;
+      holdStartDay = e.target.value;
   }
-  console.log('this is Day', holdDay);
-
+  startDayCheck = true;
 }
 
 calMonthStart(e,item){
-  startCheck=true;
-  console.log('this is month- ', e.target.value);
-  holdMonth=e.target.value;
-  // console.log('this is start',start);
+  holdStartMonth = e.target.value;
+  startMonthCheck = true;
+
 }
 
 calYearStart(e,item){
-  startCheck=true;
-  console.log('this is year', e.target.value);
-  holdYear=e.target.value;
+  holdStartYear = e.target.value;
+  startYearCheck = true;
 }
 
-calEditEnd(e,item){
-  endCheck=true;
-  end=e.target.value;
+calDayEnd(e, item){
+  if(e.target.value < 10){
+      holdEndDay = "0"+e.target.value;
+  }else{
+      holdEndDay = e.target.value;
+  }
+  endDayCheck = true;
 }
+
+calMonthEnd(e,item){
+  holdEndMonth = e.target.value;
+  endMonthCheck = true;
+}
+
+calYearEnd(e,item){
+  holdEndYear = e.target.value;
+  endYearCheck = true;
+}
+
 
   render(){
 
-  const showEvents=this.state.arr.map((item)=>{
+  const showEvents = this.state.arr.map((item) =>{
       return(
 
         <EventItem
@@ -153,8 +184,10 @@ calEditEnd(e,item){
           calMonthStart={this.calMonthStart.bind(this)}
           calYearStart={this.calYearStart.bind(this)}
           calDayStart={this.calDayStart.bind(this)}
-          calEditEnd={this.calEditEnd.bind(this)}
-          calDelete={this.calDelete.bind(this)} item={item}/>
+          calMonthEnd={this.calMonthEnd.bind(this)}
+          calYearEnd={this.calYearEnd.bind(this)}
+          calDayEnd={this.calDayEnd.bind(this)}
+          calDelete={this.calDelete.bind(this)} item = {item}/>
 
       )
     })
@@ -166,7 +199,7 @@ calEditEnd(e,item){
         </ul>
         <div className="tab-content">
           <div id="table" className="tab-pane fade">
-            <button onClick={()=> this.calNew()}>add</button>
+            <button onClick={() => this.calNew()}>add</button>
             <table className="col-md-12">
               <thead>
                 <tr>
@@ -182,7 +215,7 @@ calEditEnd(e,item){
               </tbody>
             </table>
           </div>
-          <div id="calendarMain" className="tab-pane fade in active">
+          <div id ="calendarMain" className="tab-pane fade in active">
             <BigCalendar className="col-md-12 findThis"
               events={this.state.arr}
               style={{height: 400}}/>
